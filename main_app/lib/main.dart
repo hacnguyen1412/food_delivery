@@ -2,9 +2,9 @@ import 'app/di/di.dart';
 import 'app/route/app_router.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  configureDependencies();
+  await configureDependencies();
   runApp(const MainApp());
 }
 
@@ -17,6 +17,11 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   final appRouter = getIt<AppRouter>();
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(

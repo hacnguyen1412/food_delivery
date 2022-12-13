@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:home_app/di/di.dart';
-import 'package:home_app/home_app.dart';
+import 'package:home_app/app/di/di.dart';
+import 'package:home_app/app/route/app_router.dart';
+import 'package:home_app/presentation/controllers/home/home_controller.dart';
 
 class HomeScreen extends StatefulWidget {
-  final HomeAppDelegate? delegate;
-  const HomeScreen({super.key, this.delegate});
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final controller = getIt<HomeController>();
   @override
   void initState() {
     super.initState();

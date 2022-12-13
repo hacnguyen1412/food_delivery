@@ -19,14 +19,9 @@ class _$HomeAppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     HomeRoute.name: (routeData) {
-      final args =
-          routeData.argsAs<HomeRouteArgs>(orElse: () => const HomeRouteArgs());
       return CupertinoPageX<dynamic>(
         routeData: routeData,
-        child: HomeScreen(
-          key: args.key,
-          delegate: args.delegate,
-        ),
+        child: const HomeScreen(),
       );
     },
     BannerRoute.name: (routeData) {
@@ -52,36 +47,14 @@ class _$HomeAppRouter extends RootStackRouter {
 
 /// generated route for
 /// [HomeScreen]
-class HomeRoute extends PageRouteInfo<HomeRouteArgs> {
-  HomeRoute({
-    Key? key,
-    HomeAppDelegate? delegate,
-  }) : super(
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute()
+      : super(
           HomeRoute.name,
           path: '/',
-          args: HomeRouteArgs(
-            key: key,
-            delegate: delegate,
-          ),
         );
 
   static const String name = 'HomeRoute';
-}
-
-class HomeRouteArgs {
-  const HomeRouteArgs({
-    this.key,
-    this.delegate,
-  });
-
-  final Key? key;
-
-  final HomeAppDelegate? delegate;
-
-  @override
-  String toString() {
-    return 'HomeRouteArgs{key: $key, delegate: $delegate}';
-  }
 }
 
 /// generated route for

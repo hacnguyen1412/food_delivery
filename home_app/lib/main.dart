@@ -1,27 +1,26 @@
-import 'package:core_package/core_package.dart';
 import 'package:flutter/material.dart';
 import 'package:home_app/app/route/app_router.dart';
-import 'package:home_app/di/di.dart';
+import 'package:home_app/app/di/di.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
   runApp(
-    HomeApp(
-      appRouter: getIt<HomeAppRouter>(),
-    ),
+    const HomeApp(),
   );
 }
 
 class HomeApp extends StatefulWidget {
-  final RootStackRouter appRouter;
-  const HomeApp({super.key, required this.appRouter});
+  const HomeApp({
+    super.key,
+  });
 
   @override
   State<HomeApp> createState() => _HomeAppState();
 }
 
 class _HomeAppState extends State<HomeApp> {
+  //final appRouter = getIt<HomeAppRouter>();
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
@@ -29,8 +28,8 @@ class _HomeAppState extends State<HomeApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      routeInformationParser: widget.appRouter.defaultRouteParser(),
-      routerDelegate: widget.appRouter.delegate(),
+      routeInformationParser: getIt<HomeAppRouter>().defaultRouteParser(),
+      routerDelegate: getIt<HomeAppRouter>().delegate(),
     );
   }
 }

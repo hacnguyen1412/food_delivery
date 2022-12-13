@@ -5,9 +5,8 @@ import 'package:home_app/app/di/di.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
-  runApp(
-    const HomeApp(),
-  );
+
+  runApp(const HomeApp());
 }
 
 class HomeApp extends StatefulWidget {

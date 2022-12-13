@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:home_app/app/di/di.dart';
 import 'package:home_app/app/route/app_router.dart';
-import 'package:home_app/presentation/controllers/home/home_controller.dart';
+import 'package:home_app/src/presentation/controllers/home/home_controller.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

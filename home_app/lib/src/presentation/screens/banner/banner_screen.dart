@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home_app/app/di/di.dart';
-import 'package:home_app/presentation/controllers/banner/banner_controller.dart';
+import 'package:home_app/src/presentation/controllers/banner/banner_controller.dart';
 
 class BannerScreen extends StatefulWidget {
   const BannerScreen({super.key});

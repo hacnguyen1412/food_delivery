@@ -7,5 +7,7 @@ abstract class HomeController {}
 class HomeControllerImpl extends HomeController {
   final HomeRepository repository;
 
-  HomeControllerImpl(this.repository);
+  HomeControllerImpl(this.repository) {
+    repository.cache();
+  }
 }

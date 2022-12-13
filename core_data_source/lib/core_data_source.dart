@@ -1,6 +1,8 @@
 library core_data_source;
 
-export 'common/error.dart';
+export 'di/di.dart';
+
+export 'common/network_error.dart';
 export 'common/logger.dart';
 
 export 'package:core_data_source/src/api_service.dart';

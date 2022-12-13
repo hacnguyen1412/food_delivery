@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:core_data_source/common/error.dart';
+import 'package:core_data_source/common/network_error.dart';
 import 'package:dio/dio.dart';
 
 abstract class ApiService {
@@ -21,7 +21,7 @@ abstract class ApiService {
       );
       return response;
     } catch (e) {
-      throw AppError(e);
+      throw NetworkError(e);
     }
   }
 
@@ -44,7 +44,7 @@ abstract class ApiService {
       );
       return response;
     } catch (e) {
-      throw AppError(e);
+      throw NetworkError(e);
     }
   }
 
@@ -63,7 +63,7 @@ abstract class ApiService {
       );
       return response;
     } catch (e) {
-      throw AppError(e);
+      throw NetworkError(e);
     }
   }
 
@@ -82,7 +82,7 @@ abstract class ApiService {
       );
       return response;
     } catch (e) {
-      throw AppError(e);
+      throw NetworkError(e);
     }
   }
 
@@ -113,7 +113,7 @@ abstract class ApiService {
       );
       return response;
     } catch (e) {
-      throw AppError(e);
+      throw NetworkError(e);
     }
   }
 }

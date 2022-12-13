@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
-enum AppErrorType {
+enum NetworkErrorType {
   network,
   badRequest,
   forbidden,
@@ -14,11 +14,11 @@ enum AppErrorType {
   unknown,
 }
 
-class AppError {
+class NetworkError {
   late String message;
-  late AppErrorType type;
+  late NetworkErrorType type;
 
-  AppError(Object? error) {
+  NetworkError(Object? error) {
     if (error is DioError) {
       debugPrint('AppError(DioError): '
           'type is ${error.type}, message is ${error.message}');
@@ -28,49 +28,49 @@ class AppError {
           if (error.error is SocketException) {
             // SocketException: Failed host lookup: '***'
             // (OS Error: No address associated with hostname, errno = 7)
-            type = AppErrorType.network;
+            type = NetworkErrorType.network;
           } else {
-            type = AppErrorType.unknown;
+            type = NetworkErrorType.unknown;
           }
           break;
         case DioErrorType.connectTimeout:
         case DioErrorType.receiveTimeout:
-          type = AppErrorType.timeout;
+          type = NetworkErrorType.timeout;
           break;
         case DioErrorType.sendTimeout:
-          type = AppErrorType.network;
+          type = NetworkErrorType.network;
           break;
         case DioErrorType.response:
           switch (error.response?.statusCode) {
             case HttpStatus.badRequest: // 400
-              type = AppErrorType.badRequest;
+              type = NetworkErrorType.badRequest;
               break;
             case HttpStatus.unauthorized: // 401
-              type = AppErrorType.unauthorized;
+              type = NetworkErrorType.unauthorized;
               break;
             case HttpStatus.forbidden: // 403
-              type = AppErrorType.forbidden;
+              type = NetworkErrorType.forbidden;
               break;
             case HttpStatus.internalServerError: // 500
             case HttpStatus.badGateway: // 502
             case HttpStatus.serviceUnavailable: // 503
             case HttpStatus.gatewayTimeout: // 504
-              type = AppErrorType.server;
+              type = NetworkErrorType.server;
               break;
             default:
-              type = AppErrorType.unknown;
+              type = NetworkErrorType.unknown;
               break;
           }
           break;
         case DioErrorType.cancel:
-          type = AppErrorType.cancel;
+          type = NetworkErrorType.cancel;
           break;
         default:
-          type = AppErrorType.unknown;
+          type = NetworkErrorType.unknown;
       }
     } else {
       debugPrint('AppError(UnKnown): $error');
-      type = AppErrorType.unknown;
+      type = NetworkErrorType.unknown;
       message = 'AppError: $error';
     }
   }

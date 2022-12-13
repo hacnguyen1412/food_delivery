@@ -15,10 +15,13 @@ dependencies:
 
   core_package:
     path: '../core_package'
+
   dio: ^4.0.6
   pretty_dio_logger: ^1.1.1
   dio_smart_retry: ^1.0.0
   logger: ^1.1.0
+  shared_preferences: ^2.0.15
+  
 
 dev_dependencies:
 
@@ -28,6 +31,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   build_runner: ^2.3.2
   injectable_generator: ^1.5.3
+  
   
   
 flutter:

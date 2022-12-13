@@ -16,13 +16,16 @@ dependencies:
   core_package:
     path: '../core_package'
 
+  core_data_source:
+    path: '../core_data_source'
+  
+
 dev_dependencies:
 
   flutter_test:
     sdk: flutter
 
-  # core_runner:
-  #   path: '../core_runner'
+  
     
   flutter_lints: ^2.0.0
   build_runner: ^2.3.2

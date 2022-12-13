@@ -1,5 +1,4 @@
 import 'package:core_package/core_package.dart';
-import '../route/app_router.dart';
 import 'di.config.dart';
 
 final getIt = GetIt.instance;
@@ -11,8 +10,5 @@ final getIt = GetIt.instance;
 )
 Future<void> configureDependencies({GetIt? di}) async {
   final internalGetIt = di ?? getIt;
-  //only test
-  await Future.delayed(const Duration(milliseconds: 300));
-  internalGetIt.registerLazySingleton<HomeAppRouter>(() => HomeAppRouter());
   $initGetIt(internalGetIt);
 }

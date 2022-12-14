@@ -5,40 +5,42 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "app",
+            "cwd": "app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "feature_profile",
+            "cwd": "features/feature_profile",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "feature_home",
+            "cwd": "features/feature_home",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
             "name": "core_data_source",
-            "cwd": "core_data_source",
+            "cwd": "core/core_data_source",
             "request": "launch",
             "type": "dart"
         },
         {
             "name": "core_package",
-            "cwd": "core_package",
+            "cwd": "core/core_package",
             "request": "launch",
             "type": "dart"
         },
         {
             "name": "core_runner",
-            "cwd": "core_runner",
+            "cwd": "core/core_runner",
             "request": "launch",
             "type": "dart"
         },
-        {
-            "name": "home_app",
-            "cwd": "home_app",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "main_app",
-            "cwd": "main_app",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "profile_app",
-            "cwd": "profile_app",
-            "request": "launch",
-            "type": "dart"
-        },
+      
+       
     ]
 }

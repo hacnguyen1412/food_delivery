@@ -11,8 +11,10 @@ final getIt = GetIt.instance;
   asExtension: false,
 )
 Future<void> configureDependencies() async {
-  await home_app.configureDependencies(di: getIt);
+  List<Future> listConfig = [
+    home_app.configureDependencies(di: getIt),
+  ];
+  await Future.wait(listConfig);
   getIt.registerLazySingleton<AppRouter>(() => AppRouter());
-
   $initGetIt(getIt);
 }

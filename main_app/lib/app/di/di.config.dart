@@ -6,7 +6,6 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i1;
-import 'package:home_app/home_app.dart' as _i4;
 import 'package:injectable/injectable.dart' as _i2;
 
 import '../controller/app_controller.dart'
@@ -24,7 +23,6 @@ _i1.GetIt $initGetIt(
     environment,
     environmentFilter,
   );
-  gh.singleton<_i3.AppController>(
-      _i3.AppControllerImpl(get<_i4.HomeFeature>()));
+  gh.singleton<_i3.AppController>(_i3.AppControllerImpl());
   return get;
 }

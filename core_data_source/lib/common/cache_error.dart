@@ -1,12 +1,16 @@
+import 'error.dart';
+
 enum CacheErrorType {
   cacheFail,
   getCacheFail,
   removeCacheFail,
 }
 
-class CacheError {
-  final String message;
-  final CacheErrorType type;
-
-  CacheError({required this.message, required this.type});
+class CacheError extends AppError {
+  CacheError({
+    required super.error,
+    required super.message,
+    required super.type,
+    required super.stackTrace,
+  });
 }

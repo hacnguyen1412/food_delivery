@@ -15,9 +15,7 @@ Future<void> configureDependencies({GetIt? di}) async {
   List<Future> listConfig = [
     local_data_source.configureDependencies(di: internalGetIt),
   ];
-
   await Future.wait(listConfig);
-
   internalGetIt.registerLazySingleton<HomeAppRouter>(() => HomeAppRouter());
   $initGetIt(internalGetIt);
 }

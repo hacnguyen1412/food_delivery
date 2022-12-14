@@ -3,7 +3,7 @@ import 'package:core_package/core_package.dart';
 
 import 'home_service.dart';
 
-@Singleton(as: RemoteDataSource)
+@singleton
 class HomeRemoteDataSource extends RemoteDataSource<HomeService> {
   HomeRemoteDataSource(super.service);
 }

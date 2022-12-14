@@ -7,15 +7,18 @@ import 'remote_data_source.dart';
 
 @singleton
 class HomeRepository {
-  final HomeRemoteDataSource remoteDataSource;
   final LocalDataSource localDataSource;
+  final HomeRemoteDataSource remoteDataSource;
   final HomeModelConverter modelConverter;
 
   HomeRepository(
-      this.remoteDataSource, this.localDataSource, this.modelConverter);
+    this.remoteDataSource,
+    this.localDataSource,
+    this.modelConverter,
+  );
 
-  void get() {
-    final a = localDataSource.get<HomeModel>(
+  Future<void> get() async {
+    final a = await localDataSource.get<HomeModel>(
       key: "key",
       converter: modelConverter,
     );

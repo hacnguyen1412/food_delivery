@@ -20,8 +20,8 @@ abstract class ApiService {
         cancelToken: cancelToken,
       );
       return response;
-    } catch (e) {
-      throw NetworkError(e);
+    } catch (e, s) {
+      throw NetworkError.fromError(e, s);
     }
   }
 
@@ -43,8 +43,8 @@ abstract class ApiService {
         onReceiveProgress: onReceiveProgress,
       );
       return response;
-    } catch (e) {
-      throw NetworkError(e);
+    } catch (e, s) {
+      throw NetworkError.fromError(e, s);
     }
   }
 
@@ -62,8 +62,8 @@ abstract class ApiService {
         cancelToken: cancelToken,
       );
       return response;
-    } catch (e) {
-      throw NetworkError(e);
+    } catch (e, s) {
+      throw NetworkError.fromError(e, s);
     }
   }
 
@@ -81,8 +81,8 @@ abstract class ApiService {
         cancelToken: cancelToken,
       );
       return response;
-    } catch (e) {
-      throw NetworkError(e);
+    } catch (e, s) {
+      throw NetworkError.fromError(e, s);
     }
   }
 
@@ -112,8 +112,8 @@ abstract class ApiService {
         options: options,
       );
       return response;
-    } catch (e) {
-      throw NetworkError(e);
+    } catch (e, s) {
+      throw NetworkError.fromError(e, s);
     }
   }
 }

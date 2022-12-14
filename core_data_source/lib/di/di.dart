@@ -10,5 +10,5 @@ final getIt = GetIt.instance;
 )
 Future<void> configureDependencies({GetIt? di}) async {
   final internalGetIt = di ?? getIt;
-  $initGetIt(internalGetIt);
+  await $initGetIt(internalGetIt);
 }

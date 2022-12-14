@@ -1,7 +1,10 @@
 import 'dart:io';
 
+import 'package:core_data_source/common/cache_error.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+
+import 'error.dart';
 
 enum NetworkErrorType {
   network,
@@ -14,11 +17,19 @@ enum NetworkErrorType {
   unknown,
 }
 
-class NetworkError {
-  late String message;
-  late NetworkErrorType type;
-
-  NetworkError(Object? error) {
+class NetworkError extends AppError {
+  NetworkError({
+    required super.error,
+    required super.message,
+    required super.type,
+    required super.stackTrace,
+  });
+  factory NetworkError.fromError(
+    Object error,
+    StackTrace stackTrace,
+  ) {
+    String message;
+    Enum type;
     if (error is DioError) {
       debugPrint('AppError(DioError): '
           'type is ${error.type}, message is ${error.message}');
@@ -69,9 +80,15 @@ class NetworkError {
           type = NetworkErrorType.unknown;
       }
     } else {
-      debugPrint('AppError(UnKnown): $error');
+      debugPrint('Network(UnKnown): $error');
       type = NetworkErrorType.unknown;
-      message = 'AppError: $error';
+      message = 'Network: $error';
     }
+    return NetworkError(
+      error: error,
+      message: message,
+      type: type,
+      stackTrace: stackTrace,
+    );
   }
 }

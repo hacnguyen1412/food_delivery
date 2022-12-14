@@ -1,6 +1,8 @@
 library core_data_source;
 
 export 'di/di.dart';
+export 'di/dio_module.dart';
+export 'di/shared_preferences_module.dart';
 
 export 'common/network_error.dart';
 export 'common/logger.dart';

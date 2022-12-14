@@ -1,22 +1,28 @@
 import 'dart:convert';
 import 'package:core_data_source/common/cache_error.dart';
 import 'package:core_data_source/src/data_source.dart';
+import 'package:core_package/core_package.dart';
+import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../common/model.dart';
 
-abstract class LocalDataSource extends DataSource {
+@singleton
+class LocalDataSource extends DataSource {
   final SharedPreferences prefs;
 
   LocalDataSource(this.prefs);
 
   Future<bool> cache({required String key, required Model model}) async {
     try {
-      final result = await prefs.setString(key, model.toJson().toString());
+      final json = await compute(jsonEncode, model.toJson());
+      final result = await prefs.setString(key, json);
       return result;
-    } catch (e) {
+    } catch (error, stackTrace) {
       throw CacheError(
-        message: e.toString(),
+        message: error.toString(),
+        stackTrace: stackTrace,
         type: CacheErrorType.cacheFail,
+        error: error,
       );
     }
   }
@@ -28,12 +34,14 @@ abstract class LocalDataSource extends DataSource {
     try {
       final jsonString = prefs.getString(key) ?? "";
       final json = jsonDecode(jsonString);
-      final model = converter.fromJson(json);
+      final model = await converter.fromJson(json);
       return model;
-    } catch (e) {
+    } catch (error, stackTrace) {
       throw CacheError(
-        message: e.toString(),
+        message: error.toString(),
+        stackTrace: stackTrace,
         type: CacheErrorType.getCacheFail,
+        error: error,
       );
     }
   }

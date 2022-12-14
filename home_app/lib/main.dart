@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:home_app/app/route/app_router.dart';
 import 'package:home_app/app/di/di.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  configureDependencies();
+  await configureDependencies();
 
   runApp(const HomeApp());
 }

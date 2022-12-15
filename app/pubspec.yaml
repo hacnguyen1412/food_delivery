@@ -13,8 +13,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  core_package:
-    path: '../core/core_package'
+  core_dependency:
+    path: '../core/core_dependency'
 
   feature_home:
     path: '../features/feature_home'

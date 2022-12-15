@@ -1,22 +1,39 @@
 name: core_package
 description: A new Flutter project.
 
+
 publish_to: 'none'
 
 version: 1.0.0+1
 
 environment:
   sdk: '>=2.18.4 <3.0.0'
+
 dependencies:
-  flutter:  
+  flutter:
     sdk: flutter
-  auto_route: ^5.0.4
-  cupertino_icons: ^1.0.2
-  get_it: ^7.2.0
-  get: ^4.6.5
-  injectable: ^1.5.3
-  multiple_result: ^3.1.0
 
+  core_dependency:
+    path: '../core_dependency'
 
+  dio: ^4.0.6
+  pretty_dio_logger: ^1.1.1
+  dio_smart_retry: ^1.0.0
+  logger: ^1.1.0
+  shared_preferences: ^2.0.15
+  
+
+dev_dependencies:
+
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+  build_runner: ^2.3.2
+  injectable_generator: ^1.5.3
+  
+  
+  
 flutter:
   uses-material-design: true
+

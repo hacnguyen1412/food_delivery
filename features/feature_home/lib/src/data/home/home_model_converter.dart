@@ -1,5 +1,5 @@
-import 'package:core_data_source/common/model.dart';
-import 'package:core_package/core_package.dart';
+import 'package:core_dependency/core_dependency.dart';
+import 'package:core_package/common/model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:feature_home/src/data/home/home_repository.dart';
 

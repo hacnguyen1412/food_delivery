@@ -16,8 +16,8 @@ dependencies:
   core_package:
     path: '../../core/core_package'
 
-  core_data_source:
-    path: '../../core/core_data_source'
+  core_dependency:
+    path: '../../core/core_dependency'
   
 
 dev_dependencies:

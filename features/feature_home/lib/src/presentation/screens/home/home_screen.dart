@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:feature_home/app/di/di.dart';
-import 'package:feature_home/app/route/app_router.dart';
+import 'package:feature_home/core/route/app_router.dart';
+import 'package:feature_home/core/di/di.dart';
 import 'package:feature_home/src/presentation/controllers/home/home_controller.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          getIt<HomeAppRouter>().push(
+          getIt<AppRouter>().push(
             const BannerRoute(),
           );
         },

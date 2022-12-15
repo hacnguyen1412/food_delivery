@@ -1,5 +1,5 @@
+import 'package:feature_home/core/di/di.dart';
 import 'package:flutter/material.dart';
-import 'package:feature_home/app/di/di.dart';
 import 'package:feature_home/src/presentation/controllers/banner/banner_controller.dart';
 
 class BannerScreen extends StatefulWidget {

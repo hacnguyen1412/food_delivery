@@ -1,4 +1,4 @@
-import 'package:core_package/core_package.dart';
+import 'package:core_dependency/core_dependency.dart';
 import 'package:feature_home/src/data/home/home_repository.dart';
 
 abstract class HomeController {}

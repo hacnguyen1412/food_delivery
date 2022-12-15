@@ -1,6 +1,16 @@
 library core_package;
 
-export 'package:injectable/injectable.dart';
-export 'package:flutter/cupertino.dart';
-export 'package:get_it/get_it.dart';
-export 'package:auto_route/auto_route.dart';
+//di
+export 'di/di.dart';
+
+//common
+export 'common/network_error.dart';
+export 'common/logger.dart';
+
+//service
+export 'src/service/api_service.dart';
+
+//data source
+export 'src/data_source/data_source.dart';
+export 'src/data_source/local_data_source.dart';
+export 'src/data_source/remote_data_source.dart';

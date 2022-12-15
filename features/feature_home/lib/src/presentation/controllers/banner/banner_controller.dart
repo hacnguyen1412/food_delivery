@@ -1,4 +1,4 @@
-import 'package:core_package/core_package.dart';
+import 'package:core_dependency/core_dependency.dart';
 
 abstract class BannerController {}
 

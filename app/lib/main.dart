@@ -1,5 +1,5 @@
-import 'app/di/di.dart';
-import 'app/route/app_router.dart';
+import 'core/di/di.dart';
+import 'core/route/app_router.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {

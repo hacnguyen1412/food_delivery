@@ -1,6 +1,7 @@
-import 'core/di/di.dart';
-import 'core/route/app_router.dart';
+import 'package:app/core/router/router.dart';
+import 'package:core_router/core_router.dart';
 import 'package:flutter/material.dart';
+import 'core/di/di.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,8 +30,10 @@ class _MainAppState extends State<MainApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      routeInformationParser: appRouter.defaultRouteParser(),
-      routerDelegate: appRouter.delegate(),
+      routeInformationParser: appRouter.router.defaultRouteParser(),
+      routerDelegate: appRouter.router.delegate(
+        initialRoutes: [const TabBarScreenRoute()],
+      ),
     );
   }
 }

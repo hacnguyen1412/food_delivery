@@ -1,7 +1,6 @@
-import 'package:feature_home/feature_home.dart';
-import 'package:feature_home/main.dart';
+import 'package:app/core/controller/controller_hub.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:home_feature/home_feature.dart';
 
 class TabBarScreen extends StatefulWidget {
   const TabBarScreen({super.key});
@@ -11,6 +10,7 @@ class TabBarScreen extends StatefulWidget {
 }
 
 class _TabBarScreenState extends State<TabBarScreen> {
+  final controllerHub = getIt<ControllerHub>();
   @override
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
@@ -18,25 +18,21 @@ class _TabBarScreenState extends State<TabBarScreen> {
       tabBar: CupertinoTabBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.star_fill),
-            label: 'Favourites',
+            icon: Icon(CupertinoIcons.home),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.clock_solid),
-            label: 'Recents',
+            icon: Icon(CupertinoIcons.profile_circled),
+            label: 'Profile',
           ),
         ],
       ),
       tabBuilder: (BuildContext context, int index) {
         switch (index) {
           case 0:
-            return SafeArea(
-              child: const HomeScreen(),
-            );
+            return controllerHub.homeFeature.root;
           case 1:
-            return Scaffold(
-              floatingActionButton: FloatingActionButton(onPressed: () {}),
-            );
+            return controllerHub.profileFeature.root;
           default:
             throw UnimplementedError();
         }

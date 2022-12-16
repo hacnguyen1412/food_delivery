@@ -13,11 +13,24 @@ dependencies:
   flutter:
     sdk: flutter
 
+  #core
+
   core_dependency:
     path: '../core/core_dependency'
 
-  feature_home:
-    path: '../features/feature_home'
+  core_router:
+    path: '../core/core_router'
+    
+
+  #feature
+
+  home_feature:
+    path: '../features/home_feature'
+
+  profile_feature:
+    path: '../features/profile_feature'
+
+  
 
 dev_dependencies:
   flutter_test:

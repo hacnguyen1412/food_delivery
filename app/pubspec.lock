@@ -162,6 +162,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0+1"
+  core_router:
+    dependency: "direct main"
+    description:
+      path: "../core/core_router"
+      relative: true
+    source: path
+    version: "1.0.0+1"
   crypto:
     dependency: transitive
     description:
@@ -218,13 +225,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.1"
-  feature_home:
-    dependency: "direct main"
-    description:
-      path: "../features/feature_home"
-      relative: true
-    source: path
-    version: "1.0.0+1"
   ffi:
     dependency: transitive
     description:
@@ -303,6 +303,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.0"
+  home_feature:
+    dependency: "direct main"
+    description:
+      path: "../features/home_feature"
+      relative: true
+    source: path
+    version: "1.0.0+1"
   http_multi_server:
     dependency: transitive
     description:
@@ -492,6 +499,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.4"
+  profile_feature:
+    dependency: "direct main"
+    description:
+      path: "../features/profile_feature"
+      relative: true
+    source: path
+    version: "1.0.0+1"
   pub_semver:
     dependency: transitive
     description:

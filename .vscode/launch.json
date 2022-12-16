@@ -11,36 +11,16 @@
             "type": "dart"
         },
         {
-            "name": "feature_profile",
-            "cwd": "features/feature_profile",
+            "name": "home_feature",
+            "cwd": "features/home_feature",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "feature_home",
-            "cwd": "features/feature_home",
+            "name": "profile_feature",
+            "cwd": "features/profile_feature",
             "request": "launch",
             "type": "dart"
         },
-        {
-            "name": "core_data_source",
-            "cwd": "core/core_data_source",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "core_package",
-            "cwd": "core/core_package",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "core_runner",
-            "cwd": "core/core_runner",
-            "request": "launch",
-            "type": "dart"
-        },
-      
-       
     ]
 }

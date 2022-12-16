@@ -10,6 +10,5 @@ final getIt = GetIt.instance;
 )
 Future<void> configureDependencies({GetIt? di}) async {
   final internalGetIt = di ?? getIt;
-  getIt.registerLazySingleton<EventBus>(() => EventBus());
   await $initGetIt(internalGetIt);
 }

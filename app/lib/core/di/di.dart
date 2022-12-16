@@ -1,7 +1,11 @@
-import 'package:core_dependency/core_dependency.dart';
-import 'package:app/core/route/app_router.dart';
 import 'di.config.dart';
-import 'package:feature_home/feature_home.dart' as feature_home;
+import 'package:app/core/router/router.dart';
+import 'package:core_dependency/core_dependency.dart';
+import 'package:core_router/core_router.dart';
+import 'package:home_feature/home_feature.dart' as home_feature;
+import 'package:profile_feature/profile_feature.dart' as profile_feature;
+// ignore: depend_on_referenced_packages
+import 'package:core_package/core_package.dart' as core_package;
 
 final getIt = GetIt.instance;
 
@@ -11,10 +15,18 @@ final getIt = GetIt.instance;
   asExtension: false,
 )
 Future<void> configureDependencies() async {
+  registerAppRouter(getIt);
+  await core_package.configureDependencies(di: getIt);
   List<Future> listConfig = [
-    feature_home.configureDependencies(di: getIt),
+    home_feature.configureDependencies(di: getIt),
+    profile_feature.configureDependencies(di: getIt),
   ];
   await Future.wait(listConfig);
-  getIt.registerLazySingleton<AppRouter>(() => AppRouter());
   $initGetIt(getIt);
+}
+
+void registerAppRouter(GetIt getIt) {
+  final mainAppRouter = MainAppRouter();
+  final appRouter = AppRouter(mainAppRouter);
+  getIt.registerLazySingleton<AppRouter>(() => appRouter);
 }

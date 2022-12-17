@@ -12,6 +12,6 @@ class HomeControllerImpl extends HomeController {
   }
   Future<void> doSomething() async {
     await repository.cache();
-    repository.get();
+    repository.getHomeCached();
   }
 }

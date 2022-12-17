@@ -12,6 +12,6 @@ class ProfileControllerImpl extends ProfileController {
   }
   Future<void> doSomething() async {
     await repository.cache();
-    repository.get();
+    repository.getProfileCached();
   }
 }

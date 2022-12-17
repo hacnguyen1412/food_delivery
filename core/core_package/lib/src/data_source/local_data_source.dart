@@ -1,13 +1,11 @@
 import 'dart:convert';
-import 'package:core_dependency/core_dependency.dart';
 import 'package:core_package/common/cache_error.dart';
 import 'package:core_package/common/model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'data_source.dart';
 
-@singleton
-class LocalDataSource extends DataSource {
+abstract class LocalDataSource extends DataSource {
   final SharedPreferences prefs;
 
   LocalDataSource(this.prefs);

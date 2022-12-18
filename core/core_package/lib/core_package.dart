@@ -1,7 +1,7 @@
 library core_package;
 
 //di
-export 'di/di.dart';
+export 'di/di.dart' show configureDependencies;
 
 //common
 export 'common/network_error.dart';

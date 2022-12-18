@@ -1,5 +1,7 @@
+import 'package:core_router/core_router.dart';
 import 'package:flutter/material.dart';
 import 'package:profile_feature/core/di/di.dart';
+import 'package:profile_feature/profile_feature.dart';
 import 'package:profile_feature/src/presentation/controllers/profile/profile_controller.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -11,6 +13,7 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   final controller = getIt<ProfileController>();
+  final router = getIt<AppRouter>().router;
   @override
   void initState() {
     super.initState();
@@ -18,14 +21,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: false,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text("Profile screen"),
-        ),
-        body: const Center(
-          child: Text("Profile screen"),
+    return Material(
+      color: Colors.white,
+      child: SafeArea(
+        top: false,
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text("Profile screen"),
+          ),
+          body: const Center(
+            child: Text("Profile screen"),
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () async {
+              await router.push(
+                ShippingAddressRoute(
+                  id: "ShippingAddressRoute_id",
+                  callBack: () {},
+                ),
+              );
+              print("DEBUGG");
+            },
+          ),
         ),
       ),
     );

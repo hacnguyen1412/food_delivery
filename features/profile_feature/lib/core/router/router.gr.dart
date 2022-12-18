@@ -23,7 +23,18 @@ class _$ProfileFeatureRouter extends RootStackRouter {
         routeData: routeData,
         child: const ProfileScreen(),
       );
-    }
+    },
+    ShippingAddressRoute.name: (routeData) {
+      final args = routeData.argsAs<ShippingAddressRouteArgs>();
+      return CupertinoPageX<dynamic>(
+        routeData: routeData,
+        child: ShippingAddressScreen(
+          key: args.key,
+          id: args.id,
+          callBack: args.callBack,
+        ),
+      );
+    },
   };
 
   @override
@@ -31,7 +42,11 @@ class _$ProfileFeatureRouter extends RootStackRouter {
         RouteConfig(
           ProfileRoute.name,
           path: '/profile-screen',
-        )
+        ),
+        RouteConfig(
+          ShippingAddressRoute.name,
+          path: 'shipping_address/:id/detail',
+        ),
       ];
 }
 
@@ -45,4 +60,44 @@ class ProfileRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ProfileRoute';
+}
+
+/// generated route for
+/// [ShippingAddressScreen]
+class ShippingAddressRoute extends PageRouteInfo<ShippingAddressRouteArgs> {
+  ShippingAddressRoute({
+    Key? key,
+    required String id,
+    required dynamic Function() callBack,
+  }) : super(
+          ShippingAddressRoute.name,
+          path: 'shipping_address/:id/detail',
+          args: ShippingAddressRouteArgs(
+            key: key,
+            id: id,
+            callBack: callBack,
+          ),
+          rawPathParams: {'id': id},
+        );
+
+  static const String name = 'ShippingAddressRoute';
+}
+
+class ShippingAddressRouteArgs {
+  const ShippingAddressRouteArgs({
+    this.key,
+    required this.id,
+    required this.callBack,
+  });
+
+  final Key? key;
+
+  final String id;
+
+  final dynamic Function() callBack;
+
+  @override
+  String toString() {
+    return 'ShippingAddressRouteArgs{key: $key, id: $id, callBack: $callBack}';
+  }
 }

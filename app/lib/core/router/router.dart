@@ -23,7 +23,8 @@ class MainAppRouter extends _$MainAppRouter {
     pagesMap.addAll(profileRouter.pagesMap);
 
     routes = super.routes;
-    routes.addAll(homeRouter.routes + profileRouter.routes);
+    routes.addAll(homeRouter.routes);
+    routes.addAll(profileRouter.routes);
   }
 
   @override

@@ -21,6 +21,7 @@ Future<void> configureDependencies() async {
     home_feature.configureDependencies(di: getIt),
     profile_feature.configureDependencies(di: getIt),
   ];
+
   await Future.wait(listConfig);
   $initGetIt(getIt);
 }

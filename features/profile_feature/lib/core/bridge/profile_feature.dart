@@ -7,5 +7,7 @@ class ProfileFeature {
   final Widget root = const ProfileScreen();
   final AppRouter appRouter;
 
-  ProfileFeature(this.appRouter);
+  ProfileFeature(
+    this.appRouter,
+  );
 }

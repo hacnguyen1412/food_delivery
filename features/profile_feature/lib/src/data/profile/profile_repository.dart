@@ -1,5 +1,4 @@
 import 'package:core_dependency/core_dependency.dart';
-import 'package:core_package/common/model.dart';
 import 'model.dart';
 import 'profile_local_data_source.dart';
 import 'profile_remote_data_source.dart';

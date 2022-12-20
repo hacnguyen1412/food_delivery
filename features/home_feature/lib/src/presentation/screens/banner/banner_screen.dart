@@ -26,43 +26,9 @@ class _BannerScreenState extends State<BannerScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          router.push(
-            PageRouteInfo<aRouteArgs>(
-              'ShippingAddressRoute',
-              path: '',
-              args: aRouteArgs(
-                id: '123',
-                key: null,
-                callBack: () {
-                  return true;
-                },
-              ),
-              // rawPathParams: {
-              //   'id': '123',
-              // },
-            ),
-          );
+          router.pushNamed("shipping_address/123/detail");
         },
       ),
     );
-  }
-}
-
-class aRouteArgs {
-  const aRouteArgs({
-    this.key,
-    required this.id,
-    required this.callBack,
-  });
-
-  final Key? key;
-
-  final String id;
-
-  final dynamic Function() callBack;
-
-  @override
-  String toString() {
-    return 'ShippingAddressRouteArgs{key: $key, id: $id, callBack: $callBack}';
   }
 }

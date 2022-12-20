@@ -1,5 +1,6 @@
 import 'package:core_router/core_router.dart';
 import 'package:flutter/material.dart';
+import 'package:profile_feature/core/di/di.dart';
 
 class ShippingAddressScreen extends StatefulWidget {
   final String id;
@@ -18,6 +19,7 @@ class ShippingAddressScreen extends StatefulWidget {
 class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
   @override
   Widget build(BuildContext context) {
+    final router = getIt<AppRouter>().router;
     return Material(
       color: Colors.white,
       child: SafeArea(

@@ -4,14 +4,13 @@ import 'package:core_package/common/model.dart';
 part 'shipping_address.g.dart';
 
 @JsonSerializable()
-class ShippingAddressModel implements Model {
-  final String id;
+class ShippingAddressModel extends DatabaseModel {
   final String address;
 
   ShippingAddressModel({
-    required this.id,
+    required String id,
     required this.address,
-  });
+  }) : super(id);
 
   factory ShippingAddressModel.fromJson(Map<String, dynamic> json) =>
       _$ShippingAddressModelFromJson(json);

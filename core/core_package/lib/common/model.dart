@@ -1,23 +1,31 @@
-abstract class ModelConverter<T> {
+// convert json to model for cache func
+import 'package:core_dependency/core_dependency.dart';
+
+abstract class ModelConverter<T extends DatabaseModel> {
   Future<T> fromJson(Map<String, dynamic> json);
-  static Type typeOf<T>() => T;
 }
 
-//abstract for cache func
-abstract class Model {
+// abstract for cache func
+abstract class DatabaseModel {
   final String? _id;
 
   String get id => _id ?? "";
 
-  Model(this._id);
+  DatabaseModel(this._id);
 
   Map<String, dynamic> toJson();
+}
 
-  static String genCacheKey({required String runtimeType, String? id}) {
+// generate cache key for cache func
+
+@singleton
+class CacheKeyGenerator {
+  String genKey<T extends DatabaseModel>({String? id}) {
+    final type = T.toString();
     if (id == null) {
-      return "$runtimeType}";
+      return "$type}";
     } else {
-      return "$runtimeType-$id";
+      return "$type-$id";
     }
   }
 }

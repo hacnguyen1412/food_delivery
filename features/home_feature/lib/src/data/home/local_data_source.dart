@@ -1,18 +1,36 @@
 import 'package:core_dependency/core_dependency.dart';
+import 'package:core_package/common/error.dart';
+import 'package:core_package/common/model.dart';
 import 'package:core_package/core_package.dart';
 import 'home_model_converter.dart';
 import 'model.dart';
 
 @singleton
-class HomeModelDataSource extends LocalDataSource {
+class HomeLocalDataSource {
   final HomeModelConverter modelConverter;
-  HomeModelDataSource(super.prefs, this.modelConverter);
+  final AppDatabase database;
+  final CacheKeyGenerator keyGenerator;
+  HomeLocalDataSource(
+    this.modelConverter,
+    this.database,
+    this.keyGenerator,
+  );
 
-  Future<HomeModel> getHomeCached() async {
-    final model = await get<HomeModel>(
-      key: "key",
+  String get cacheKey => keyGenerator.genKey<HomeModel>();
+
+  Future<Result<HomeModel, AppError>> getHomeCached() async {
+    final result = await database.get<HomeModel>(
+      key: cacheKey,
       converter: modelConverter,
     );
-    return model;
+    return result;
+  }
+
+  Future<Result<bool, AppError>> cacheHome(HomeModel model) async {
+    final result = await database.cache(
+      key: cacheKey,
+      model: model,
+    );
+    return result;
   }
 }

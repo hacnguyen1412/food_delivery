@@ -14,12 +14,16 @@ class ProfileRepository {
   );
 
   Future<void> getProfileCached() async {
-    final profileModel = await localDataSource.getProfileCached();
-    debugPrint(profileModel.toJson().toString());
+    final result = await localDataSource.getProfileCached();
+    result.when((profileModel) {
+      debugPrint(profileModel.toJson().toString());
+    }, (error) {
+      //do nothing
+    });
   }
 
   Future<void> cache() async {
     final model = ProfileModel(name: "Hac Profile");
-    await localDataSource.cache(key: "key", model: model);
+    await localDataSource.cacheProfile(model);
   }
 }

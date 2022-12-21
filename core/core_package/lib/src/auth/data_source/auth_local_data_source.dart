@@ -1,12 +1,32 @@
 import 'package:core_dependency/core_dependency.dart';
-import 'package:core_package/src/auth/model/auth_model_converter.dart';
-import 'package:core_package/src/data_source/local_data_source.dart';
+import 'package:core_package/common/error.dart';
+import 'package:core_package/src/database/database.dart';
 import 'package:core_package/src/model/auth.dart';
 
-@singleton
-class AuthLocalDataSource extends LocalDataSource {
-  final AuthModelConverter converter;
-  AuthLocalDataSource(super.prefs, this.converter);
+import '../../../common/model.dart';
 
-  void cacheAuth(AuthModel model) {}
+@singleton
+class AuthLocalDataSource {
+  final AuthModelConverter converter;
+  final AppDatabase database;
+  final CacheKeyGenerator keyGenerator;
+
+  AuthLocalDataSource(this.converter, this.database, this.keyGenerator);
+
+  String get cacheKey => keyGenerator.genKey<AuthModel>();
+
+  void cacheAuth(AuthModel model) {
+    database.cache(
+      key: cacheKey,
+      model: model,
+    );
+  }
+
+  Future<Result<AuthModel, AppError>> getAuth() async {
+    final result = await database.get<AuthModel>(
+      key: cacheKey,
+      converter: converter,
+    );
+    return result;
+  }
 }

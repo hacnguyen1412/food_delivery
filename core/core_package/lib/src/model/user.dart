@@ -3,7 +3,7 @@ import 'package:core_package/common/model.dart';
 part 'user.g.dart';
 
 @JsonSerializable()
-class UserModel extends Model {
+class UserModel extends DatabaseModel {
   final String name;
   final String patternThumb;
 

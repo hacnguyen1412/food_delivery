@@ -40,7 +40,7 @@ class _$HomeFeatureRouter extends RootStackRouter {
         ),
         RouteConfig(
           BannerRoute.name,
-          path: '/books/:id',
+          path: '/banner-screen',
         ),
       ];
 }
@@ -63,7 +63,7 @@ class BannerRoute extends PageRouteInfo<void> {
   const BannerRoute()
       : super(
           BannerRoute.name,
-          path: '/books/:id',
+          path: '/banner-screen',
         );
 
   static const String name = 'BannerRoute';

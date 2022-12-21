@@ -26,7 +26,7 @@ class _BannerScreenState extends State<BannerScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          router.pushNamed("shipping_address/123/detail");
+          router.pushNamed("/shipping_address/:id/detail");
         },
       ),
     );

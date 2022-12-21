@@ -9,7 +9,7 @@ part 'router.gr.dart';
   routes: <AutoRoute>[
     AutoRoute(page: ProfileScreen),
     AutoRoute(
-      path: 'shipping_address/:id/detail',
+      path: '/shipping_address/:id/detail',
       page: ShippingAddressScreen,
     ),
   ],

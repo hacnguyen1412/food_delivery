@@ -40,8 +40,10 @@ Future<_i1.GetIt> $initGetIt(
     () => sharedPreferencesModule.prefs,
     preResolve: true,
   );
-  gh.singleton<_i7.AuthLocalDataSource>(
-      _i7.AuthLocalDataSource(get<_i6.SharedPreferences>()));
+  gh.singleton<_i7.AuthLocalDataSource>(_i7.AuthLocalDataSource(
+    get<_i6.SharedPreferences>(),
+    get<_i3.AuthModelConverter>(),
+  ));
   return get;
 }
 

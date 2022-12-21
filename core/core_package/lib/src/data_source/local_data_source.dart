@@ -25,9 +25,9 @@ abstract class LocalDataSource extends DataSource {
     }
   }
 
-  Future<Model> get<Model>({
+  Future<T> get<T>({
     required String key,
-    required ModelConverter<Model> converter,
+    required ModelConverter<T> converter,
   }) async {
     try {
       final jsonString = prefs.getString(key) ?? "";

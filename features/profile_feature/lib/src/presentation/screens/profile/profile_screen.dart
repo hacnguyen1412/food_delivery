@@ -34,13 +34,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () async {
-              await router.push(
-                ShippingAddressRoute(
-                  id: "123",
-                  callBack: () {},
-                ),
-              );
-              print("DEBUGG");
+              await router.pushNamed('/shipping_address/123/detail');
+              // await router.push(
+              //   ShippingAddressRoute(
+              //     id: "123",
+              //     callBack: () {},
+              //   ),
+              // );
+              // print("DEBUGG");
             },
           ),
         ),

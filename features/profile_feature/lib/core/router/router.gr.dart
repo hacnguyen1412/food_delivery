@@ -25,13 +25,15 @@ class _$ProfileFeatureRouter extends RootStackRouter {
       );
     },
     ShippingAddressRoute.name: (routeData) {
-      final args = routeData.argsAs<ShippingAddressRouteArgs>();
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<ShippingAddressRouteArgs>(
+          orElse: () =>
+              ShippingAddressRouteArgs(id: pathParams.getString('id')));
       return CupertinoPageX<dynamic>(
         routeData: routeData,
         child: ShippingAddressScreen(
           key: args.key,
           id: args.id,
-          callBack: args.callBack,
         ),
       );
     },
@@ -45,7 +47,7 @@ class _$ProfileFeatureRouter extends RootStackRouter {
         ),
         RouteConfig(
           ShippingAddressRoute.name,
-          path: 'shipping_address/:id/detail',
+          path: '/shipping_address/:id/detail',
         ),
       ];
 }
@@ -68,14 +70,12 @@ class ShippingAddressRoute extends PageRouteInfo<ShippingAddressRouteArgs> {
   ShippingAddressRoute({
     Key? key,
     required String id,
-    required dynamic Function() callBack,
   }) : super(
           ShippingAddressRoute.name,
-          path: 'shipping_address/:id/detail',
+          path: '/shipping_address/:id/detail',
           args: ShippingAddressRouteArgs(
             key: key,
             id: id,
-            callBack: callBack,
           ),
           rawPathParams: {'id': id},
         );
@@ -87,17 +87,14 @@ class ShippingAddressRouteArgs {
   const ShippingAddressRouteArgs({
     this.key,
     required this.id,
-    required this.callBack,
   });
 
   final Key? key;
 
   final String id;
 
-  final dynamic Function() callBack;
-
   @override
   String toString() {
-    return 'ShippingAddressRouteArgs{key: $key, id: $id, callBack: $callBack}';
+    return 'ShippingAddressRouteArgs{key: $key, id: $id}';
   }
 }

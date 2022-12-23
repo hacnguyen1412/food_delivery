@@ -1,5 +1,5 @@
-import 'package:core_package/objectbox.g.dart';
 import 'package:core_package/src/object_box/object_box.dart';
+import 'package:objectbox/objectbox.dart';
 
 @Entity()
 class AuthDao {

@@ -12,3 +12,4 @@ export 'src/service/api_service.dart';
 
 //database
 export 'src/database/database.dart';
+export 'src/object_box/object_box.dart';

@@ -8,6 +8,7 @@
 import 'package:core_package/common/model.dart' as _i10;
 import 'package:core_package/core_package.dart' as _i9;
 import 'package:core_router/core_router.dart' as _i4;
+// ignore_for_file: depend_on_referenced_packages
 import 'package:dio/dio.dart' as _i7;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;

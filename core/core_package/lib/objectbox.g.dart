@@ -41,6 +41,35 @@ final _entities = <ModelEntity>[
             flags: 0)
       ],
       relations: <ModelRelation>[],
+      backlinks: <ModelBacklink>[]),
+  ModelEntity(
+      id: const IdUid(3, 2869242858013728834),
+      name: 'HomeDao',
+      lastPropertyId: const IdUid(4, 2165034246917321600),
+      flags: 0,
+      properties: <ModelProperty>[
+        ModelProperty(
+            id: const IdUid(1, 1048493704411636710),
+            name: 'id',
+            type: 6,
+            flags: 129),
+        ModelProperty(
+            id: const IdUid(2, 7073660778466245160),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(3, 2880707898835298881),
+            name: 'avatar',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(4, 2165034246917321600),
+            name: 'createdAt',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <ModelRelation>[],
       backlinks: <ModelBacklink>[])
 ];
 
@@ -64,7 +93,7 @@ Store openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(2, 1840612338578339119),
+      lastEntityId: const IdUid(3, 2869242858013728834),
       lastIndexId: const IdUid(0, 0),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
@@ -115,6 +144,46 @@ ModelDefinition getObjectBoxModel() {
                 const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
 
           return object;
+        }),
+    HomeDao: EntityDefinition<HomeDao>(
+        model: _entities[1],
+        toOneRelations: (HomeDao object) => [],
+        toManyRelations: (HomeDao object) => {},
+        getId: (HomeDao object) => object.id,
+        setId: (HomeDao object, int id) {
+          object.id = id;
+        },
+        objectToFB: (HomeDao object, fb.Builder fbb) {
+          final nameOffset =
+              object.name == null ? null : fbb.writeString(object.name!);
+          final avatarOffset =
+              object.avatar == null ? null : fbb.writeString(object.avatar!);
+          final createdAtOffset = object.createdAt == null
+              ? null
+              : fbb.writeString(object.createdAt!);
+          fbb.startTable(5);
+          fbb.addInt64(0, object.id ?? 0);
+          fbb.addOffset(1, nameOffset);
+          fbb.addOffset(2, avatarOffset);
+          fbb.addOffset(3, createdAtOffset);
+          fbb.finish(fbb.endTable());
+          return object.id ?? 0;
+        },
+        objectFromFB: (Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+
+          final object = HomeDao(
+              id: const fb.Int64Reader()
+                  .vTableGetNullable(buffer, rootOffset, 4),
+              name: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 6),
+              avatar: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 8),
+              createdAt: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 10));
+
+          return object;
         })
   };
 
@@ -132,4 +201,21 @@ class AuthDao_ {
   /// see [AuthDao.refreshToken]
   static final refreshToken =
       QueryStringProperty<AuthDao>(_entities[0].properties[2]);
+}
+
+/// [HomeDao] entity fields to define ObjectBox queries.
+class HomeDao_ {
+  /// see [HomeDao.id]
+  static final id = QueryIntegerProperty<HomeDao>(_entities[1].properties[0]);
+
+  /// see [HomeDao.name]
+  static final name = QueryStringProperty<HomeDao>(_entities[1].properties[1]);
+
+  /// see [HomeDao.avatar]
+  static final avatar =
+      QueryStringProperty<HomeDao>(_entities[1].properties[2]);
+
+  /// see [HomeDao.createdAt]
+  static final createdAt =
+      QueryStringProperty<HomeDao>(_entities[1].properties[3]);
 }

@@ -12,6 +12,7 @@ export 'src/service/api_service.dart';
 
 //database
 export 'src/object_box/object_box.dart';
+export 'src/auth/data/model/auth_dao.dart';
 
 // network
 export 'package:dio/dio.dart';

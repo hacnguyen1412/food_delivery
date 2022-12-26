@@ -1,4 +1,4 @@
-import 'package:home_feature/src/data/home/model/home_dao.dart';
+import 'package:core_package/core_package.dart';
 import 'package:home_feature/src/data/home/model/home_dto.dart';
 
 abstract class HomeRepository {

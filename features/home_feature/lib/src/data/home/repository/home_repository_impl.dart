@@ -1,5 +1,5 @@
 import 'package:core_dependency/core_dependency.dart';
-import 'package:home_feature/src/data/home/model/home_dao.dart';
+import 'package:core_package/core_package.dart';
 import 'package:home_feature/src/domain/repository/home_repository.dart';
 import '../model/home_dto.dart';
 import 'local_data_source.dart';

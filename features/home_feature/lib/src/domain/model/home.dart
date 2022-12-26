@@ -1,4 +1,4 @@
-import 'package:home_feature/src/data/home/model/home_dao.dart';
+import 'package:core_package/core_package.dart';
 import 'package:home_feature/src/data/home/model/home_dto.dart';
 
 class Home {
@@ -34,7 +34,7 @@ class Home {
 
   HomeDao toDao() {
     return HomeDao(
-      id: int.parse(id),
+      id: int.tryParse(id),
       name: name,
       avatar: avatar,
       createdAt: createdAt,

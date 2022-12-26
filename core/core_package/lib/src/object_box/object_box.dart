@@ -1,4 +1,5 @@
 import 'package:core_package/objectbox.g.dart';
+import 'package:path_provider/path_provider.dart';
 
 const int defaultId = 1;
 
@@ -8,7 +9,8 @@ class ObjectBoxFactory {
   ObjectBoxFactory._init(this._store);
 
   static Future<ObjectBoxFactory> init() async {
-    final store = await openStore();
+    final dir = await getApplicationDocumentsDirectory();
+    final store = openStore(directory: "${dir.path}/objectbox");
     return ObjectBoxFactory._init(store);
   }
 
@@ -20,6 +22,7 @@ class ObjectBoxFactory {
 abstract class ObjectBox<T> {
   int put(T object, {IPutMode mode = IPutMode.put});
   Future<int> putAsync(T object, {IPutMode mode = IPutMode.put});
+  List<int> putMany(List<T> objects, {IPutMode mode = IPutMode.put});
   List<T> getAll();
   T? get(int id);
   bool isEmpty();
@@ -43,6 +46,11 @@ class _ObjectBoxImpl<T> extends ObjectBox<T> {
   @override
   Future<int> putAsync(T object, {IPutMode mode = IPutMode.put}) {
     return box.putAsync(object, mode: mode.putMode);
+  }
+
+  @override
+  List<int> putMany(List<T> objects, {IPutMode mode = IPutMode.put}) {
+    return box.putMany(objects, mode: mode.putMode);
   }
 
   @override

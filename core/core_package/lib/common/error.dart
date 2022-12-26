@@ -1,17 +1,19 @@
 import 'package:core_package/common/logger.dart';
 
 class AppError {
-  final String message;
+  late String _message;
   final Enum type;
   final StackTrace stackTrace;
   final Object error;
+  String get message => _message;
 
   AppError({
     required this.error,
-    required this.message,
+    String? message,
     required this.type,
     required this.stackTrace,
   }) {
+    _message = message ??= error.toString();
     logger.i("type: $type\n$message");
   }
 }

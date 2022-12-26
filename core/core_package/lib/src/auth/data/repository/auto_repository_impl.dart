@@ -10,11 +10,12 @@ class AuthRepositoryImpl implements AuthRepository {
   final AuthRemoteDataSource remoteDataSource;
 
   AuthRepositoryImpl(this.localDataSource, this.remoteDataSource);
-
+  @override
   AuthDao getAuth() {
     return localDataSource.getAuth();
   }
 
+  @override
   void cacheAuth(AuthDao auth) {
     localDataSource.cacheAuth(auth);
   }

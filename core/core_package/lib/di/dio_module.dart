@@ -16,16 +16,7 @@ abstract class DIOModule {
         contentType: 'application/json',
         receiveDataWhenStatusError: true,
       ),
-    )..interceptors.add(
-        PrettyDioLogger(
-            requestHeader: false,
-            requestBody: true,
-            responseBody: true,
-            responseHeader: false,
-            error: true,
-            compact: true,
-            maxWidth: 200),
-      );
+    )..interceptors.add(PrettyDioLogger());
     final retryInterceptor = RetryInterceptor(
       dio: dio,
       retries: 3,

@@ -16,13 +16,11 @@ dependencies:
   core_dependency:
     path: '../core_dependency'
 
-  dio: ^4.0.6
+  
   pretty_dio_logger: ^1.1.1
   dio_smart_retry: ^1.0.0
   logger: ^1.1.0
-  shared_preferences: ^2.0.15
-  objectbox: ^1.7.0
-  objectbox_flutter_libs: ^1.7.0
+  
   
 
 dev_dependencies:
@@ -34,7 +32,7 @@ dev_dependencies:
   build_runner:
   injectable_generator:
   json_serializable:
-  objectbox_generator:
+  objectbox_generator: ^1.7.0
   
   
   

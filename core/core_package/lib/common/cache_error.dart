@@ -9,7 +9,7 @@ enum CacheErrorType {
 class CacheError extends AppError {
   CacheError({
     required super.error,
-    required super.message,
+    super.message,
     required super.type,
     required super.stackTrace,
   });

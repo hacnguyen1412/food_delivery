@@ -13,30 +13,35 @@ import 'package:flat_buffers/flat_buffers.dart' as fb;
 import 'package:objectbox/internal.dart'; // generated code can access "internal" functionality
 import 'package:objectbox/objectbox.dart';
 
-import 'src/auth/data/model/auth_dao.dart';
+import 'src/data/home/model/home_dao.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 
 final _entities = <ModelEntity>[
   ModelEntity(
-      id: const IdUid(2, 1840612338578339119),
-      name: 'AuthDao',
-      lastPropertyId: const IdUid(3, 3998825763172418431),
+      id: const IdUid(1, 8309631598015935734),
+      name: 'HomeDao',
+      lastPropertyId: const IdUid(5, 5303558935802524054),
       flags: 0,
       properties: <ModelProperty>[
         ModelProperty(
-            id: const IdUid(1, 7271608783922602520),
+            id: const IdUid(1, 2083326256646757277),
             name: 'id',
             type: 6,
             flags: 129),
         ModelProperty(
-            id: const IdUid(2, 1981334803678048095),
-            name: 'token',
+            id: const IdUid(3, 7471390970088782841),
+            name: 'name',
             type: 9,
             flags: 0),
         ModelProperty(
-            id: const IdUid(3, 3998825763172418431),
-            name: 'refreshToken',
+            id: const IdUid(4, 1055340617543088643),
+            name: 'avatar',
+            type: 9,
+            flags: 0),
+        ModelProperty(
+            id: const IdUid(5, 5303558935802524054),
+            name: 'createdAt',
             type: 9,
             flags: 0)
       ],
@@ -64,41 +69,40 @@ Store openStore(
 ModelDefinition getObjectBoxModel() {
   final model = ModelInfo(
       entities: _entities,
-      lastEntityId: const IdUid(2, 1840612338578339119),
+      lastEntityId: const IdUid(1, 8309631598015935734),
       lastIndexId: const IdUid(0, 0),
       lastRelationId: const IdUid(0, 0),
       lastSequenceId: const IdUid(0, 0),
-      retiredEntityUids: const [5150590878266194490],
+      retiredEntityUids: const [],
       retiredIndexUids: const [],
-      retiredPropertyUids: const [
-        3334949527245380719,
-        2510459459248845853,
-        6495432478422200356
-      ],
+      retiredPropertyUids: const [1874549507187542778],
       retiredRelationUids: const [],
       modelVersion: 5,
       modelVersionParserMinimum: 5,
       version: 1);
 
   final bindings = <Type, EntityDefinition>{
-    AuthDao: EntityDefinition<AuthDao>(
+    HomeDao: EntityDefinition<HomeDao>(
         model: _entities[0],
-        toOneRelations: (AuthDao object) => [],
-        toManyRelations: (AuthDao object) => {},
-        getId: (AuthDao object) => object.id,
-        setId: (AuthDao object, int id) {
+        toOneRelations: (HomeDao object) => [],
+        toManyRelations: (HomeDao object) => {},
+        getId: (HomeDao object) => object.id,
+        setId: (HomeDao object, int id) {
           object.id = id;
         },
-        objectToFB: (AuthDao object, fb.Builder fbb) {
-          final tokenOffset =
-              object.token == null ? null : fbb.writeString(object.token!);
-          final refreshTokenOffset = object.refreshToken == null
+        objectToFB: (HomeDao object, fb.Builder fbb) {
+          final nameOffset =
+              object.name == null ? null : fbb.writeString(object.name!);
+          final avatarOffset =
+              object.avatar == null ? null : fbb.writeString(object.avatar!);
+          final createdAtOffset = object.createdAt == null
               ? null
-              : fbb.writeString(object.refreshToken!);
-          fbb.startTable(4);
+              : fbb.writeString(object.createdAt!);
+          fbb.startTable(6);
           fbb.addInt64(0, object.id ?? 0);
-          fbb.addOffset(1, tokenOffset);
-          fbb.addOffset(2, refreshTokenOffset);
+          fbb.addOffset(2, nameOffset);
+          fbb.addOffset(3, avatarOffset);
+          fbb.addOffset(4, createdAtOffset);
           fbb.finish(fbb.endTable());
           return object.id ?? 0;
         },
@@ -106,13 +110,15 @@ ModelDefinition getObjectBoxModel() {
           final buffer = fb.BufferContext(fbData);
           final rootOffset = buffer.derefObject(0);
 
-          final object = AuthDao(
-              token: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 6),
-              refreshToken: const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 8))
-            ..id =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+          final object = HomeDao(
+              id: const fb.Int64Reader()
+                  .vTableGetNullable(buffer, rootOffset, 4),
+              name: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 8),
+              avatar: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 10),
+              createdAt: const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 12));
 
           return object;
         })
@@ -121,15 +127,19 @@ ModelDefinition getObjectBoxModel() {
   return ModelDefinition(model, bindings);
 }
 
-/// [AuthDao] entity fields to define ObjectBox queries.
-class AuthDao_ {
-  /// see [AuthDao.id]
-  static final id = QueryIntegerProperty<AuthDao>(_entities[0].properties[0]);
+/// [HomeDao] entity fields to define ObjectBox queries.
+class HomeDao_ {
+  /// see [HomeDao.id]
+  static final id = QueryIntegerProperty<HomeDao>(_entities[0].properties[0]);
 
-  /// see [AuthDao.token]
-  static final token = QueryStringProperty<AuthDao>(_entities[0].properties[1]);
+  /// see [HomeDao.name]
+  static final name = QueryStringProperty<HomeDao>(_entities[0].properties[1]);
 
-  /// see [AuthDao.refreshToken]
-  static final refreshToken =
-      QueryStringProperty<AuthDao>(_entities[0].properties[2]);
+  /// see [HomeDao.avatar]
+  static final avatar =
+      QueryStringProperty<HomeDao>(_entities[0].properties[2]);
+
+  /// see [HomeDao.createdAt]
+  static final createdAt =
+      QueryStringProperty<HomeDao>(_entities[0].properties[3]);
 }

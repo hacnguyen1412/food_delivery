@@ -3,7 +3,7 @@ import 'package:objectbox/objectbox.dart';
 
 @Entity()
 class AuthDao {
-  @Id()
+  @Id(assignable: true)
   int? id = defaultId;
   final String? token;
   final String? refreshToken;

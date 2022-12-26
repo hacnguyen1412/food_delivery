@@ -5,21 +5,23 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:core_package/common/model.dart' as _i11;
-import 'package:core_package/core_package.dart' as _i10;
+import 'package:core_dependency/core_dependency.dart' as _i9;
+import 'package:core_package/core_package.dart' as _i7;
 import 'package:core_router/core_router.dart' as _i5;
-import 'package:dio/dio.dart' as _i8;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../src/data/home/home_model_converter.dart' as _i6;
-import '../../src/data/home/home_repository.dart' as _i13;
-import '../../src/data/home/home_service.dart' as _i7;
-import '../../src/data/home/local_data_source.dart' as _i9;
-import '../../src/data/home/remote_data_source.dart' as _i12;
+import '../../src/data/home/repository/home_repository_impl.dart' as _i12;
+import '../../src/data/home/repository/local_data_source.dart' as _i6;
+import '../../src/data/home/repository/remote_data_source.dart' as _i10;
+import '../../src/data/home/repository/rest_client.dart' as _i8;
+import '../../src/domain/repository/home_repository.dart' as _i11;
+import '../../src/domain/use_case/cache_homes_use_case.dart' as _i13;
+import '../../src/domain/use_case/fetch_home_use_case.dart' as _i14;
+import '../../src/domain/use_case/get_homes_cached_use_case.dart' as _i15;
 import '../../src/presentation/controllers/banner/banner_controller.dart'
     as _i3;
-import '../../src/presentation/controllers/home/home_controller.dart' as _i14;
+import '../../src/presentation/controllers/home/home_controller.dart' as _i16;
 import '../bridge/home_feature.dart'
     as _i4; // ignore_for_file: unnecessary_lambdas
 
@@ -37,20 +39,25 @@ _i1.GetIt $initGetIt(
   );
   gh.factory<_i3.BannerController>(() => _i3.BannerControllerImpl());
   gh.singleton<_i4.HomeFeature>(_i4.HomeFeature(get<_i5.AppRouter>()));
-  gh.singleton<_i6.HomeModelConverter>(_i6.HomeModelConverter());
-  gh.singleton<_i7.HomeService>(_i7.HomeService(get<_i8.Dio>()));
-  gh.singleton<_i9.HomeLocalDataSource>(_i9.HomeLocalDataSource(
-    get<_i6.HomeModelConverter>(),
-    get<_i10.AppDatabase>(),
-    get<_i11.CacheKeyGenerator>(),
+  gh.singleton<_i6.HomeLocalDataSource>(
+      _i6.HomeLocalDataSource(get<_i7.ObjectBoxFactory>()));
+  gh.singleton<_i8.HomeRestClient>(_i8.HomeRestClient(get<_i9.Dio>()));
+  gh.singleton<_i10.HomeRemoteDataSource>(
+      _i10.HomeRemoteDataSource(get<_i8.HomeRestClient>()));
+  gh.singleton<_i11.HomeRepository>(_i12.HomeRepositoryImpl(
+    get<_i10.HomeRemoteDataSource>(),
+    get<_i6.HomeLocalDataSource>(),
   ));
-  gh.singleton<_i12.HomeRemoteDataSource>(
-      _i12.HomeRemoteDataSource(get<_i7.HomeService>()));
-  gh.singleton<_i13.HomeRepository>(_i13.HomeRepository(
-    get<_i12.HomeRemoteDataSource>(),
-    get<_i9.HomeLocalDataSource>(),
-  ));
-  gh.factory<_i14.HomeController>(
-      () => _i14.HomeControllerImpl(get<_i13.HomeRepository>()));
+  gh.singleton<_i13.CacheHomesUseCase>(
+      _i13.CacheHomesUseCase(get<_i11.HomeRepository>()));
+  gh.singleton<_i14.FetchHomesUseCase>(
+      _i14.FetchHomesUseCase(get<_i11.HomeRepository>()));
+  gh.singleton<_i15.GetHomesCachedUseCase>(
+      _i15.GetHomesCachedUseCase(get<_i11.HomeRepository>()));
+  gh.factory<_i16.HomeController>(() => _i16.HomeControllerImpl(
+        get<_i13.CacheHomesUseCase>(),
+        get<_i14.FetchHomesUseCase>(),
+        get<_i15.GetHomesCachedUseCase>(),
+      ));
   return get;
 }

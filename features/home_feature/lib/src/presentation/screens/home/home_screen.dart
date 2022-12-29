@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: CircularProgressIndicator(),
               );
             case HomeStateUI.loaded:
-              final homes = controller.rxHomes;
+              final homes = controller.rxTasks;
               return ListView.separated(
                 padding: const EdgeInsets.all(12),
                 itemCount: homes.length,

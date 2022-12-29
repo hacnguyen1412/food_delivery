@@ -1,9 +1,8 @@
 import 'package:core_dependency/core_dependency.dart';
 import 'package:core_package/common/error.dart';
 import 'package:core_package/core_package.dart';
+import 'package:home_feature/src/domain/model/task.dart';
 import 'package:home_feature/src/domain/repository/home_repository.dart';
-
-import '../model/home.dart';
 
 @singleton
 class FetchHomesUseCase {
@@ -11,10 +10,10 @@ class FetchHomesUseCase {
 
   FetchHomesUseCase(this._repository);
 
-  Future<Result<List<Home>, AppError>> execute() async {
+  Future<Result<List<Task>, AppError>> execute() async {
     try {
-      final homes = await _repository.fetchHomes();
-      final result = homes.map((homeDto) => Home.fromHomeDto(homeDto)).toList();
+      final tasks = await _repository.fetchTasks();
+      final result = tasks.map((dto) => Task.fromTaskDto(dto)).toList();
       return Success(result);
     } catch (e, s) {
       return Error(NetworkError.fromError(e, s));

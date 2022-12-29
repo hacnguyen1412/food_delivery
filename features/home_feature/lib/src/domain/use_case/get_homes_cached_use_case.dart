@@ -1,7 +1,7 @@
 import 'package:core_dependency/core_dependency.dart';
 import 'package:core_package/common/cache_error.dart';
 import 'package:core_package/common/error.dart';
-import 'package:home_feature/src/domain/model/home.dart';
+import 'package:home_feature/src/domain/model/task.dart';
 import 'package:home_feature/src/domain/repository/home_repository.dart';
 
 @singleton
@@ -10,10 +10,10 @@ class GetHomesCachedUseCase {
 
   GetHomesCachedUseCase(this._repository);
 
-  Future<Result<List<Home>, AppError>> execute() async {
+  Future<Result<List<Task>, AppError>> execute() async {
     try {
-      final homes = await _repository.getHomesCached();
-      final result = homes.map((homeDao) => Home.fromHomeDao(homeDao)).toList();
+      final homes = await _repository.getTasksCached();
+      final result = homes.map((taskDao) => Task.fromTaskDao(taskDao)).toList();
       return Success(result);
     } catch (e, s) {
       return Error(

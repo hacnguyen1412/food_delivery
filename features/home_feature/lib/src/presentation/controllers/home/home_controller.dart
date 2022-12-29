@@ -1,11 +1,11 @@
 import 'package:core_dependency/core_dependency.dart';
-import 'package:home_feature/src/domain/model/home.dart';
+import 'package:home_feature/src/domain/model/task.dart';
 import 'package:home_feature/src/domain/use_case/cache_homes_use_case.dart';
 import 'package:home_feature/src/domain/use_case/fetch_home_use_case.dart';
 import 'package:home_feature/src/domain/use_case/get_homes_cached_use_case.dart';
 
 abstract class HomeController {
-  RxList<Home> get rxHomes;
+  RxList<Task> get rxTasks;
   Rx<HomeStateUI> get rxState;
 }
 
@@ -18,12 +18,12 @@ enum HomeStateUI {
 
 @Injectable(as: HomeController)
 class HomeControllerImpl extends HomeController {
-  final CacheHomesUseCase cacheHomes;
+  final CacheTasksUseCase cacheHomes;
   final FetchHomesUseCase fetchHomes;
   final GetHomesCachedUseCase getHomeCached;
 
   @override
-  final RxList<Home> rxHomes = RxList();
+  final RxList<Task> rxTasks = RxList();
   @override
   final Rx<HomeStateUI> rxState = Rx(HomeStateUI.idle);
 
@@ -36,7 +36,7 @@ class HomeControllerImpl extends HomeController {
     final result = await fetchHomes.execute();
     result.when(
       (homes) {
-        rxHomes.value = homes;
+        rxTasks.value = homes;
         cacheHomes.execute(homes);
         rxState.value = HomeStateUI.loaded;
       },

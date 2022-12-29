@@ -22,8 +22,6 @@ dependencies:
   core_router:
     path: '../../core/core_router'
 
-  
-  
 
 dev_dependencies:
 
@@ -34,7 +32,7 @@ dev_dependencies:
   build_runner: ^2.3.2
   injectable_generator: ^1.5.3
   json_serializable: ^6.2.0
-  auto_route_generator: ^5.0.3
+  auto_route_generator:
   objectbox_generator:
   retrofit_generator: ^4.2.0
 

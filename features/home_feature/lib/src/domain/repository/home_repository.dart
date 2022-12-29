@@ -1,10 +1,10 @@
-import 'package:core_package/core_package.dart';
-import 'package:home_feature/src/data/home/model/home_dto.dart';
+import '/src/data/home/model/task_dto.dart';
+import '/src/data/home/model/task_dao.dart';
 
 abstract class HomeRepository {
-  Future<List<HomeDto>> fetchHomes();
+  Future<List<TaskDto>> fetchTasks();
 
-  Future<List<HomeDao>> getHomesCached();
+  Future<List<TaskDao>> getTasksCached();
 
-  void cacheHomes(List<HomeDao> homes);
+  void cacheTasks(List<TaskDao> tasks);
 }

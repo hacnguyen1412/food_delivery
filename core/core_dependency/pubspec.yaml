@@ -16,13 +16,12 @@ dependencies:
   injectable: ^1.5.3
   multiple_result: ^3.1.0
   event_bus_plus: ^0.5.0
-  freezed: ^2.3.2
   json_annotation: ^4.7.0
   cached_network_image: ^3.2.3
-  objectbox: ^1.7.0
-  objectbox_flutter_libs: ^1.7.0
   dio: ^4.0.6
   retrofit: ^3.3.1
+  shared_preferences: ^2.0.15
+  realm: ^0.8.0+rc
   
 
 flutter:

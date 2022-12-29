@@ -1,20 +1,25 @@
 import 'package:core_dependency/core_dependency.dart';
 import 'package:core_package/common/cache_error.dart';
 import 'package:core_package/common/error.dart';
-import 'package:core_package/core_package.dart';
+import 'package:home_feature/src/domain/model/task.dart';
 import 'package:home_feature/src/domain/repository/home_repository.dart';
 
-import '../model/home.dart';
-
 @singleton
-class CacheHomesUseCase {
+class CacheTasksUseCase {
   final HomeRepository _repository;
 
-  CacheHomesUseCase(this._repository);
-  Result<bool, AppError> execute(List<Home> homes) {
+  CacheTasksUseCase(this._repository);
+  Result<bool, AppError> execute(List<Task> homes) {
     try {
-      final homesDao = homes.map((e) => e.toDao()).toList();
-      _repository.cacheHomes(homesDao);
+      // final tasksDao = homes
+      //     .map((e) => TaskDao(
+      //           e.id,
+      //           avatar: e.avatar,
+      //           createdAt: e.createdAt,
+      //           name: e.name,
+      //         ))
+      //     .toList();
+      // _repository.cacheTasks(tasksDao);
       return const Success(true);
     } catch (e, s) {
       return Error(

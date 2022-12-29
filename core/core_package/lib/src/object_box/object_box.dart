@@ -1,17 +1,16 @@
-import 'package:core_package/objectbox.g.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:core_dependency/core_dependency.dart';
 
 const int defaultId = 1;
 
 class ObjectBoxFactory {
   late final Store _store;
 
-  ObjectBoxFactory._init(this._store);
+  ObjectBoxFactory(this._store);
 
-  static Future<ObjectBoxFactory> init() async {
-    final dir = await getApplicationDocumentsDirectory();
-    final store = openStore(directory: "${dir.path}/objectbox");
-    return ObjectBoxFactory._init(store);
+  static ObjectBoxFactory getInstance(
+      Store Function({String directory}) openStore, String appDir) {
+    final store = openStore(directory: "$appDir/objectbox");
+    return ObjectBoxFactory(store);
   }
 
   ObjectBox<T> createObjectBox<T>() {
@@ -23,13 +22,13 @@ abstract class ObjectBox<T> {
   int put(T object, {IPutMode mode = IPutMode.put});
   Future<int> putAsync(T object, {IPutMode mode = IPutMode.put});
   List<int> putMany(List<T> objects, {IPutMode mode = IPutMode.put});
+  List<T?> getMany(List<int> ids, {bool growableResult = false});
   List<T> getAll();
   T? get(int id);
-  bool isEmpty();
-  List<T?> getMany(List<int> ids, {bool growableResult = false});
   bool remove(int id);
   int removeMany(List<int> ids);
   int removeAll();
+  bool isEmpty();
 }
 
 class _ObjectBoxImpl<T> extends ObjectBox<T> {

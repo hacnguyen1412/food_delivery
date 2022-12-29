@@ -8,8 +8,8 @@ part of 'rest_client.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _HomeRestClient implements HomeRestClient {
-  _HomeRestClient(
+class _TaskRestClient implements TaskRestClient {
+  _TaskRestClient(
     this._dio, {
     this.baseUrl,
   }) {
@@ -21,13 +21,13 @@ class _HomeRestClient implements HomeRestClient {
   String? baseUrl;
 
   @override
-  Future<List<HomeDto>> getHomes() async {
+  Future<List<TaskDto>> fetchTasks() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result =
-        await _dio.fetch<List<dynamic>>(_setStreamType<List<HomeDto>>(Options(
+        await _dio.fetch<List<dynamic>>(_setStreamType<List<TaskDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -40,7 +40,7 @@ class _HomeRestClient implements HomeRestClient {
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     var value = await compute(
-      deserializeHomeDtoList,
+      deserializeTaskDtoList,
       _result.data!.cast<Map<String, dynamic>>(),
     );
     return value;

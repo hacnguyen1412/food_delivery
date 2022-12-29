@@ -1,7 +1,7 @@
 import 'package:core_dependency/core_dependency.dart';
-import 'package:home_feature/src/data/home/model/task_dao.dart';
-import 'package:home_feature/src/domain/repository/home_repository.dart';
-import '../model/task_dto.dart';
+import '/src/data/home/model/task_dto.dart';
+import '/src/data/home/model/task_dao.dart';
+import '/src/domain/repository/home_repository.dart';
 import 'local_data_source.dart';
 import 'remote_data_source.dart';
 

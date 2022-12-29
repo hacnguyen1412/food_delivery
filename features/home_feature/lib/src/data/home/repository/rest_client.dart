@@ -1,7 +1,7 @@
 import 'package:core_dependency/core_dependency.dart';
+import 'package:core_package/core_package.dart';
 import 'package:flutter/foundation.dart';
 import 'package:home_feature/src/data/home/model/task_dto.dart';
-import 'package:retrofit/retrofit.dart';
 part 'rest_client.g.dart';
 
 @RestApi(

@@ -9,6 +9,9 @@ flutter pub get
 cd ../core_router
 flutter clean
 flutter pub get
+cd ../core_realm
+flutter clean
+flutter pub get
 cd ../../features/home_feature
 flutter clean
 flutter pub get

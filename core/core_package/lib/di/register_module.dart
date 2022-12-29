@@ -1,6 +1,6 @@
 import 'package:core_dependency/core_dependency.dart';
-import 'package:core_package/core_package.dart';
-import 'package:core_package/src/directory/app_directory.dart';
+import 'package:core_package/src/app_directory/app_directory.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 @module
 abstract class RegisterModule {

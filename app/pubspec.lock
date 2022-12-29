@@ -29,6 +29,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.9.0"
+  auto_route:
+    dependency: transitive
+    description:
+      name: auto_route
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.0.4"
+  auto_route_generator:
+    dependency: "direct dev"
+    description:
+      name: auto_route_generator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.0.2"
   boolean_selector:
     dependency: transitive
     description:
@@ -43,6 +57,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.3.1"
+  build_cli_annotations:
+    dependency: transitive
+    description:
+      name: build_cli_annotations
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   build_config:
     dependency: transitive
     description:
@@ -70,7 +91,7 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.2"
+    version: "2.3.3"
   build_runner_core:
     dependency: transitive
     description:
@@ -92,6 +113,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "8.4.2"
+  cancellation_token:
+    dependency: transitive
+    description:
+      name: cancellation_token
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.5.0"
   characters:
     dependency: transitive
     description:
@@ -119,7 +147,7 @@ packages:
       name: code_builder
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.3.0"
+    version: "4.4.0"
   collection:
     dependency: transitive
     description:
@@ -137,7 +165,28 @@ packages:
   core_dependency:
     dependency: "direct main"
     description:
-      path: "../core_dependency"
+      path: "../core/core_dependency"
+      relative: true
+    source: path
+    version: "1.0.0+1"
+  core_package:
+    dependency: transitive
+    description:
+      path: "../core/core_package"
+      relative: true
+    source: path
+    version: "1.0.0+1"
+  core_realm:
+    dependency: transitive
+    description:
+      path: "../core/core_realm"
+      relative: true
+    source: path
+    version: "1.0.0+1"
+  core_router:
+    dependency: "direct main"
+    description:
+      path: "../core/core_router"
       relative: true
     source: path
     version: "1.0.0+1"
@@ -163,14 +212,14 @@ packages:
     source: hosted
     version: "2.2.4"
   dio:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: dio
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.6"
   dio_smart_retry:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: dio_smart_retry
       url: "https://pub.dartlang.org"
@@ -275,6 +324,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.0"
+  home_feature:
+    dependency: "direct main"
+    description:
+      path: "../features/home_feature"
+      relative: true
+    source: path
+    version: "1.0.0+1"
+  http:
+    dependency: transitive
+    description:
+      name: http
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.13.5"
   http_multi_server:
     dependency: transitive
     description:
@@ -318,7 +381,7 @@ packages:
     source: hosted
     version: "0.6.4"
   json_annotation:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: json_annotation
       url: "https://pub.dartlang.org"
@@ -339,7 +402,7 @@ packages:
     source: hosted
     version: "2.0.1"
   logger:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: logger
       url: "https://pub.dartlang.org"
@@ -387,6 +450,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.0"
+  objectid:
+    dependency: transitive
+    description:
+      name: objectid
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   package_config:
     dependency: transitive
     description:
@@ -402,7 +472,7 @@ packages:
     source: hosted
     version: "1.8.2"
   path_provider:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: path_provider
       url: "https://pub.dartlang.org"
@@ -450,6 +520,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.3"
+  petitparser:
+    dependency: transitive
+    description:
+      name: petitparser
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.1.0"
   platform:
     dependency: transitive
     description:
@@ -472,7 +549,7 @@ packages:
     source: hosted
     version: "1.5.1"
   pretty_dio_logger:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: pretty_dio_logger
       url: "https://pub.dartlang.org"
@@ -485,6 +562,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.4"
+  profile_feature:
+    dependency: "direct main"
+    description:
+      path: "../features/profile_feature"
+      relative: true
+    source: path
+    version: "1.0.0+1"
   pub_semver:
     dependency: transitive
     description:
@@ -499,8 +583,29 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.1"
-  retrofit:
+  realm:
     dependency: "direct main"
+    description:
+      name: realm
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.0+rc"
+  realm_common:
+    dependency: transitive
+    description:
+      name: realm_common
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.0+rc"
+  realm_generator:
+    dependency: transitive
+    description:
+      name: realm_generator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.0+rc"
+  retrofit:
+    dependency: transitive
     description:
       name: retrofit
       url: "https://pub.dartlang.org"
@@ -513,8 +618,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.27.7"
+  sane_uuid:
+    dependency: transitive
+    description:
+      name: sane_uuid
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0-alpha.4"
   shared_preferences:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: shared_preferences
       url: "https://pub.dartlang.org"
@@ -637,6 +749,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.1"
+  tar:
+    dependency: transitive
+    description:
+      name: tar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.6"
   term_glyph:
     dependency: transitive
     description:
@@ -692,7 +811,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.2"
+    version: "3.1.3"
   xdg_directories:
     dependency: transitive
     description:
@@ -700,6 +819,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.0+2"
+  xml:
+    dependency: transitive
+    description:
+      name: xml
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "6.1.0"
   yaml:
     dependency: transitive
     description:

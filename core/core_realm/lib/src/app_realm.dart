@@ -1,0 +1,80 @@
+import 'package:flutter/material.dart';
+import 'package:realm/realm.dart';
+
+abstract class CoreRealm {
+  @protected
+  Realm? realm;
+
+  CoreRealm() {
+    openRealm();
+  }
+
+  Configuration get config;
+
+  void add(RealmObject object, {bool update = true});
+
+  void addAll(List<RealmObject> objects, {bool update = true});
+
+  T? get<T extends RealmObject>({String? primaryKey});
+
+  RealmResults<T>? getList<T extends RealmObject>();
+
+  void deleteAll();
+
+  void deleteMany<T extends RealmObject>(List<T> items);
+
+  @protected
+  void openRealm();
+}
+
+mixin CoreRealmImpl on CoreRealm {
+  @override
+  void add(RealmObject object, {bool update = true}) {
+    realm?.write(() {
+      realm?.add(
+        object,
+        update: update,
+      );
+    });
+  }
+
+  @override
+  void addAll(List<RealmObject> objects, {bool update = true}) {
+    realm?.write(() {
+      realm?.addAll(objects, update: update);
+    });
+  }
+
+  @override
+  T? get<T extends RealmObject>({
+    String? primaryKey,
+  }) {
+    RealmResults<T>? result;
+    if (primaryKey == null) {
+      realm?.find(primaryKey);
+    } else {
+      result = realm?.all<T>();
+    }
+    return result?.first;
+  }
+
+  @override
+  RealmResults<T>? getList<T extends RealmObject>() {
+    final result = realm?.all<T>();
+    return result;
+  }
+
+  @override
+  void deleteAll() {
+    realm?.write(() {
+      realm?.deleteAll();
+    });
+  }
+
+  @override
+  void deleteMany<T extends RealmObject>(List<T> items) {
+    realm?.write(() {
+      realm?.deleteMany(items);
+    });
+  }
+}

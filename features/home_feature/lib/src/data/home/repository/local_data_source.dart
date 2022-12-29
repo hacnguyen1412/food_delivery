@@ -1,21 +1,20 @@
 import 'package:core_dependency/core_dependency.dart';
-import 'package:core_package/core_package.dart';
+import 'package:home_feature/core/realm/realm.dart';
 import 'package:home_feature/src/data/home/model/task_dao.dart';
 
 @singleton
 class HomeLocalDataSource {
-  final ObjectBox<TaskDao> _objectBox;
-  // late final ObjectBox<TaskDao> _objectBox =
-  //     _factory.createObjectBox<TaskDao>();
-  HomeLocalDataSource(this._objectBox);
+  final HomeFeatureRealm _realm;
+
+  HomeLocalDataSource(this._realm);
 
   List<TaskDao> getHomeCached() {
-    return [];
-    final list = _objectBox.getAll();
-    return list;
+    final result = _realm.getList<TaskDao>();
+    final tasks = result?.toList() ?? [];
+    return tasks;
   }
 
   void cacheTasks(List<TaskDao> tasks) {
-    //_objectBox.putMany(tasks);
+    _realm.addAll(tasks);
   }
 }

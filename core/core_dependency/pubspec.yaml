@@ -10,19 +10,13 @@ environment:
 dependencies:
   flutter:  
     sdk: flutter
+  
   cupertino_icons: ^1.0.2
   get_it: ^7.2.0
   get: ^4.6.5
   injectable: ^1.5.3
   multiple_result: ^3.1.0
   event_bus_plus: ^0.5.0
-  json_annotation: ^4.7.0
-  cached_network_image: ^3.2.3
-  dio: ^4.0.6
-  retrofit: ^3.3.1
-  shared_preferences: ^2.0.15
-  realm: ^0.8.0+rc
-  
 
 flutter:
   uses-material-design: true

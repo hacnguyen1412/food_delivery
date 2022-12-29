@@ -1,4 +1,5 @@
 import 'package:core_dependency/core_dependency.dart';
+import 'package:dio/dio.dart';
 import 'package:dio_smart_retry/dio_smart_retry.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import '../common/logger.dart';

@@ -22,6 +22,12 @@ dependencies:
   core_router:
     path: '../../core/core_router'
 
+  core_realm:
+    path: '../../core/core_realm'
+  
+  realm: ^0.8.0+rc
+
+
 
 dev_dependencies:
 
@@ -35,6 +41,7 @@ dev_dependencies:
   auto_route_generator:
   objectbox_generator:
   retrofit_generator: ^4.2.0
+  
 
 
 

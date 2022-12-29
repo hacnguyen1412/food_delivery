@@ -33,7 +33,7 @@ class HomeControllerImpl extends HomeController {
 
   Future<void> initTesting() async {
     rxState.value = HomeStateUI.loading;
-    final result = await fetchHomes.execute();
+    final result = await getHomeCached.execute();
     result.when(
       (homes) {
         rxTasks.value = homes;

@@ -1,9 +1,11 @@
-import 'package:core_dependency/core_dependency.dart';
+import 'package:realm/realm.dart';
 
-@Entity()
-class TaskDao {
-  @Id(assignable: true)
-  int? id;
+part 'task_dao.g.dart';
+
+@RealmModel()
+class _TaskDao {
+  @PrimaryKey()
+  String? id;
   String? name;
   String? avatar;
   String? createdAt;

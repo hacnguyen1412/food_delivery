@@ -30,6 +30,8 @@ dependencies:
   profile_feature:
     path: '../features/profile_feature'
 
+  realm: ^0.8.0+rc
+
   
 
 dev_dependencies:

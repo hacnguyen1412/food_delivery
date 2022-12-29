@@ -12,8 +12,12 @@ class AuthController {
   }
 
   void testing() {
-    authUserCase.cacheAuth
-        .execute(Auth(token: "token", refreshToken: "refreshToken"));
+    authUserCase.cacheAuth.execute(
+      Auth(
+        token: "token",
+        refreshToken: "refreshToken",
+      ),
+    );
     final result = authUserCase.getAuth.execute();
     result.when((auth) {
       debugPrint(auth.token);

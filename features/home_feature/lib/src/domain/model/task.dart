@@ -16,7 +16,7 @@ class Task {
 
   factory Task.fromTaskDao(TaskDao taskDao) {
     return Task(
-      id: taskDao.id.toString(),
+      id: taskDao.id ?? "",
       name: taskDao.name ?? "",
       avatar: taskDao.avatar ?? "",
       createdAt: taskDao.createdAt ?? "",

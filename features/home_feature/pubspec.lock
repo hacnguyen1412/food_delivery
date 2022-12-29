@@ -57,6 +57,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.3.1"
+  build_cli_annotations:
+    dependency: transitive
+    description:
+      name: build_cli_annotations
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   build_config:
     dependency: transitive
     description:
@@ -106,27 +113,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "8.4.2"
-  cached_network_image:
+  cancellation_token:
     dependency: transitive
     description:
-      name: cached_network_image
+      name: cancellation_token
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.2.3"
-  cached_network_image_platform_interface:
-    dependency: transitive
-    description:
-      name: cached_network_image_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
-  cached_network_image_web:
-    dependency: transitive
-    description:
-      name: cached_network_image_web
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.2"
+    version: "1.5.0"
   characters:
     dependency: transitive
     description:
@@ -180,6 +173,13 @@ packages:
     dependency: "direct main"
     description:
       path: "../../core/core_package"
+      relative: true
+    source: path
+    version: "1.0.0+1"
+  core_realm:
+    dependency: "direct main"
+    description:
+      path: "../../core/core_realm"
       relative: true
     source: path
     version: "1.0.0+1"
@@ -279,20 +279,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_blurhash:
-    dependency: transitive
-    description:
-      name: flutter_blurhash
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.7.0"
-  flutter_cache_manager:
-    dependency: transitive
-    description:
-      name: flutter_cache_manager
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.3.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -471,13 +457,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.0"
-  objectbox_flutter_libs:
-    dependency: transitive
-    description:
-      name: objectbox_flutter_libs
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.7.0"
   objectbox_generator:
     dependency: "direct dev"
     description:
@@ -485,13 +464,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.0"
-  octo_image:
+  objectid:
     dependency: transitive
     description:
-      name: octo_image
+      name: objectid
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.2"
+    version: "2.1.0"
   package_config:
     dependency: transitive
     description:
@@ -555,13 +534,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.3"
-  pedantic:
-    dependency: transitive
-    description:
-      name: pedantic
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.11.1"
   petitparser:
     dependency: transitive
     description:
@@ -618,6 +590,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.1"
+  realm:
+    dependency: "direct main"
+    description:
+      name: realm
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.0+rc"
+  realm_common:
+    dependency: transitive
+    description:
+      name: realm_common
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.0+rc"
+  realm_generator:
+    dependency: transitive
+    description:
+      name: realm_generator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.0+rc"
   retrofit:
     dependency: transitive
     description:
@@ -639,6 +632,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.27.7"
+  sane_uuid:
+    dependency: transitive
+    description:
+      name: sane_uuid
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0-alpha.4"
   shared_preferences:
     dependency: transitive
     description:
@@ -735,20 +735,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.9.0"
-  sqflite:
-    dependency: transitive
-    description:
-      name: sqflite
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.2.2"
-  sqflite_common:
-    dependency: transitive
-    description:
-      name: sqflite_common
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.4.0+2"
   stack_trace:
     dependency: transitive
     description:
@@ -777,13 +763,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.1"
-  synchronized:
+  tar:
     dependency: transitive
     description:
-      name: synchronized
+      name: tar
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.0+3"
+    version: "0.5.6"
   term_glyph:
     dependency: transitive
     description:
@@ -819,13 +805,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.1"
-  uuid:
-    dependency: transitive
-    description:
-      name: uuid
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.7"
   vector_math:
     dependency: transitive
     description:
@@ -877,4 +856,4 @@ packages:
     version: "3.1.1"
 sdks:
   dart: ">=2.18.4 <3.0.0"
-  flutter: ">=3.3.0"
+  flutter: ">=3.0.0"

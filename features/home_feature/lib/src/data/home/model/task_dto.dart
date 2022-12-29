@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:core_dependency/core_dependency.dart';
+import 'package:core_package/core_package.dart';
 part 'task_dto.g.dart';
 
 @JsonSerializable()

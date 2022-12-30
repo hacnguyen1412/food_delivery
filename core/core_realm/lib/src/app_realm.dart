@@ -52,13 +52,13 @@ mixin CoreRealmImpl on CoreRealm {
   T? get<T extends RealmObject>({
     String? primaryKey,
   }) {
-    RealmResults<T>? result;
-    if (primaryKey == null) {
-      realm?.find(primaryKey);
+    T? result;
+    if (primaryKey != null) {
+      result = realm?.find<T>(primaryKey);
     } else {
-      result = realm?.all<T>();
+      result = realm?.all<T>().first;
     }
-    return result?.first;
+    return result;
   }
 
   @override

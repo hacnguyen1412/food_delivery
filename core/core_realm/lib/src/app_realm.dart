@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:realm/realm.dart';
 
 abstract class CoreRealm {
+  final String realmPath;
+
   @protected
   Realm? realm;
 
-  CoreRealm() {
-    openRealm();
+  CoreRealm({required this.realmPath}) {
+    _openRealm();
   }
 
   Configuration get config;
@@ -23,8 +25,9 @@ abstract class CoreRealm {
 
   void deleteMany<T extends RealmObject>(List<T> items);
 
-  @protected
-  void openRealm();
+  void _openRealm() {
+    realm = Realm(config);
+  }
 }
 
 mixin CoreRealmImpl on CoreRealm {

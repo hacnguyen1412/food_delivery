@@ -14,7 +14,7 @@
             "name": "home_feature",
             "cwd": "features/home_feature",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
         },
         {
             "name": "profile_feature",

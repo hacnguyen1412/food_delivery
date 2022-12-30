@@ -1,8 +1,8 @@
 import 'package:core_dependency/core_dependency.dart';
-import 'package:dio/dio.dart';
+import 'package:core_package/core_package.dart';
 import 'package:dio_smart_retry/dio_smart_retry.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import '../common/logger.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_pretty_dio_logger/flutter_pretty_dio_logger.dart';
 
 @module
 abstract class DIOModule {
@@ -15,13 +15,22 @@ abstract class DIOModule {
         contentType: 'application/json',
         receiveDataWhenStatusError: true,
       ),
-    )..interceptors.add(PrettyDioLogger());
+    )..interceptors.add(
+        PrettyDioLogger(
+          requestHeader: false,
+          queryParameters: false,
+          requestBody: false,
+          responseHeader: false,
+          responseBody: true,
+          error: true,
+          showProcessingTime: true,
+          showCUrl: true,
+          canShowLog: kDebugMode,
+        ),
+      );
     final retryInterceptor = RetryInterceptor(
       dio: dio,
       retries: 3,
-      logPrint: (message) {
-        logger.i(message);
-      },
       retryDelays: const [Duration.zero],
     );
     dio.interceptors.add(retryInterceptor);

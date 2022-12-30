@@ -6,12 +6,12 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:core_dependency/core_dependency.dart' as _i13;
-import 'package:dio/dio.dart' as _i12;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:shared_preferences/shared_preferences.dart' as _i15;
 
 import '../common/model.dart' as _i10;
+import '../core_package.dart' as _i12;
 import '../src/app_directory/app_directory.dart' as _i3;
 import '../src/auth/data/repository/auth_local_data_source.dart' as _i4;
 import '../src/auth/data/repository/auth_remote_data_source.dart' as _i5;

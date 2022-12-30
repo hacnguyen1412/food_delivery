@@ -57,6 +57,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.3.1"
+  build_cli_annotations:
+    dependency: transitive
+    description:
+      name: build_cli_annotations
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   build_config:
     dependency: transitive
     description:
@@ -106,6 +113,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "8.4.2"
+  cancellation_token:
+    dependency: transitive
+    description:
+      name: cancellation_token
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.5.0"
   characters:
     dependency: transitive
     description:
@@ -159,6 +173,13 @@ packages:
     dependency: "direct main"
     description:
       path: "../../core/core_package"
+      relative: true
+    source: path
+    version: "1.0.0+1"
+  core_realm:
+    dependency: "direct main"
+    description:
+      path: "../../core/core_realm"
       relative: true
     source: path
     version: "1.0.0+1"
@@ -258,6 +279,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  flutter_pretty_dio_logger:
+    dependency: transitive
+    description:
+      name: flutter_pretty_dio_logger
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.3"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -303,6 +331,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.0"
+  http:
+    dependency: transitive
+    description:
+      name: http
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.13.5"
   http_multi_server:
     dependency: transitive
     description:
@@ -415,6 +450,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.0"
+  objectid:
+    dependency: transitive
+    description:
+      name: objectid
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   package_config:
     dependency: transitive
     description:
@@ -534,6 +576,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.1"
+  realm:
+    dependency: "direct main"
+    description:
+      name: realm
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.0+rc"
+  realm_common:
+    dependency: transitive
+    description:
+      name: realm_common
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.0+rc"
+  realm_generator:
+    dependency: transitive
+    description:
+      name: realm_generator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.0+rc"
   retrofit:
     dependency: transitive
     description:
@@ -541,6 +604,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.3.1"
+  retrofit_generator:
+    dependency: "direct dev"
+    description:
+      name: retrofit_generator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.2.0"
   rxdart:
     dependency: transitive
     description:
@@ -548,6 +618,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.27.7"
+  sane_uuid:
+    dependency: transitive
+    description:
+      name: sane_uuid
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0-alpha.4"
   shared_preferences:
     dependency: transitive
     description:
@@ -672,6 +749,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.1"
+  tar:
+    dependency: transitive
+    description:
+      name: tar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.6"
   term_glyph:
     dependency: transitive
     description:
@@ -693,6 +777,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  tuple:
+    dependency: transitive
+    description:
+      name: tuple
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
   typed_data:
     dependency: transitive
     description:

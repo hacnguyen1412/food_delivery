@@ -51,14 +51,14 @@ _i1.GetIt $initGetIt(
   ));
   gh.singleton<_i13.CacheTasksUseCase>(
       _i13.CacheTasksUseCase(get<_i11.HomeRepository>()));
-  gh.singleton<_i14.FetchHomesUseCase>(
-      _i14.FetchHomesUseCase(get<_i11.HomeRepository>()));
-  gh.singleton<_i15.GetHomesCachedUseCase>(
-      _i15.GetHomesCachedUseCase(get<_i11.HomeRepository>()));
+  gh.singleton<_i14.FetchTasksUseCase>(
+      _i14.FetchTasksUseCase(get<_i11.HomeRepository>()));
+  gh.singleton<_i15.GetTasksCachedUseCase>(
+      _i15.GetTasksCachedUseCase(get<_i11.HomeRepository>()));
   gh.factory<_i16.HomeController>(() => _i16.HomeControllerImpl(
         get<_i13.CacheTasksUseCase>(),
-        get<_i14.FetchHomesUseCase>(),
-        get<_i15.GetHomesCachedUseCase>(),
+        get<_i14.FetchTasksUseCase>(),
+        get<_i15.GetTasksCachedUseCase>(),
       ));
   return get;
 }

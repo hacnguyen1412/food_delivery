@@ -5,10 +5,10 @@ import 'package:home_feature/src/domain/model/task.dart';
 import 'package:home_feature/src/domain/repository/home_repository.dart';
 
 @singleton
-class FetchHomesUseCase {
+class FetchTasksUseCase {
   final HomeRepository _repository;
 
-  FetchHomesUseCase(this._repository);
+  FetchTasksUseCase(this._repository);
 
   Future<Result<List<Task>, AppError>> execute() async {
     try {

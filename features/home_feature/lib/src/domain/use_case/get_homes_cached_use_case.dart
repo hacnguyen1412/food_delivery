@@ -5,10 +5,10 @@ import 'package:home_feature/src/domain/model/task.dart';
 import 'package:home_feature/src/domain/repository/home_repository.dart';
 
 @singleton
-class GetHomesCachedUseCase {
+class GetTasksCachedUseCase {
   final HomeRepository _repository;
 
-  GetHomesCachedUseCase(this._repository);
+  GetTasksCachedUseCase(this._repository);
 
   Future<Result<List<Task>, AppError>> execute() async {
     try {

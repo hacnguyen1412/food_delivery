@@ -14,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final controller = getIt<HomeController>();
+  final router = getIt<AppRouter>().router;
   @override
   void initState() {
     super.initState();
@@ -36,24 +37,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: CircularProgressIndicator(),
               );
             case HomeStateUI.loaded:
-              final homes = controller.rxTasks;
+              final tasks = controller.rxTasks;
               return ListView.separated(
                 padding: const EdgeInsets.all(12),
-                itemCount: homes.length,
+                itemCount: tasks.length,
                 itemBuilder: (context, index) {
-                  final home = homes[index];
-                  return Row(
-                    children: [
-                      // Container(
-                      //   width: 40,
-                      //   decoration: BoxDecoration(
-                      //     shape: BoxShape.circle,
-                      //     color: Colors.grey.shade300,
-                      //   ),
-                      //   child: CachedNetworkImage(imageUrl: home.avatar),
-                      // ),
-                      Text(home.name),
-                    ],
+                  final task = tasks[index];
+                  return GestureDetector(
+                    child: Text(task.name),
+                    onTap: () {
+                      router.pushNamed('/shipping_address/${task.id}/detail');
+                    },
                   );
                 },
                 separatorBuilder: (context, index) {

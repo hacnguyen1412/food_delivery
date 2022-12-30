@@ -18,26 +18,26 @@ enum HomeStateUI {
 
 @Injectable(as: HomeController)
 class HomeControllerImpl extends HomeController {
-  final CacheTasksUseCase cacheHomes;
-  final FetchHomesUseCase fetchHomes;
-  final GetHomesCachedUseCase getHomeCached;
+  final CacheTasksUseCase cacheTasks;
+  final FetchTasksUseCase fetchTasks;
+  final GetTasksCachedUseCase getTasksCached;
 
   @override
   final RxList<Task> rxTasks = RxList();
   @override
   final Rx<HomeStateUI> rxState = Rx(HomeStateUI.idle);
 
-  HomeControllerImpl(this.cacheHomes, this.fetchHomes, this.getHomeCached) {
+  HomeControllerImpl(this.cacheTasks, this.fetchTasks, this.getTasksCached) {
     initTesting();
   }
 
   Future<void> initTesting() async {
     rxState.value = HomeStateUI.loading;
-    final result = await getHomeCached.execute();
+    final result = await fetchTasks.execute();
     result.when(
-      (homes) {
-        rxTasks.value = homes;
-        cacheHomes.execute(homes);
+      (tasks) {
+        rxTasks.value = tasks;
+        cacheTasks.execute(tasks);
         rxState.value = HomeStateUI.loaded;
       },
       (error) {

@@ -9,6 +9,7 @@ class ProfileFeatureRealm extends CoreRealm with CoreRealmImpl {
       : super(
           realmPath: appDir.profileFeature,
         );
+
   @override
   Configuration get config => Configuration.local(
         [

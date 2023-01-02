@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:realm/realm.dart';
 
@@ -26,7 +29,17 @@ abstract class CoreRealm {
   void deleteMany<T extends RealmObject>(List<T> items);
 
   void _openRealm() {
-    realm = Realm(config);
+    debugPrint("realm path: ${config.path}");
+    try {
+      realm = Realm(config);
+    } catch (e, s) {
+      log(e.toString());
+      log(s.toString());
+      if (kReleaseMode) {
+        Realm.deleteRealm(config.path);
+        realm = Realm(config);
+      }
+    }
   }
 }
 

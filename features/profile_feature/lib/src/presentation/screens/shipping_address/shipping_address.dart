@@ -1,6 +1,7 @@
 import 'package:core_dependency/core_dependency.dart';
 import 'package:core_package/di/di.dart';
 import 'package:core_router/core_router.dart';
+import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 import '/src/presentation/controllers/shipping_address/shipping_address_controller.dart';
 
@@ -43,7 +44,14 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    SvgView.asset(
+                      Assets.images.imgAvatar,
+                      width: 40,
+                      height: 40,
+                    ),
+                    const SizedBox(height: 12),
                     Text(address.id),
+                    const SizedBox(height: 4),
                     Text(address.address),
                   ],
                 ),

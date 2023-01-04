@@ -26,41 +26,35 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.white,
-      child: SafeArea(
-        top: false,
-        child: Scaffold(
-            appBar: AppBar(
-              title: const Text("Shipping address screen"),
-            ),
-            body: Obx(() {
-              final state = controller.rxState.value;
-              switch (state) {
-                case ShippingAddressUIState.idle:
-                case ShippingAddressUIState.gettingCache:
-                  return const Center(child: CircularProgressIndicator());
-                case ShippingAddressUIState.getCacheSuccess:
-                  final address = controller.rxAddress.value;
-                  return Center(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(address.id),
-                        Text(address.address),
-                      ],
-                    ),
-                  );
-                case ShippingAddressUIState.getCacheFail:
-                  return const Center(
-                    child: Text("ShippingAddressUIState.getCacheFail"),
-                  );
-                default:
-                  throw UnimplementedError();
-              }
-            })),
-      ),
-    );
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text("Shipping address screen"),
+        ),
+        body: Obx(() {
+          final state = controller.rxState.value;
+          switch (state) {
+            case ShippingAddressUIState.idle:
+            case ShippingAddressUIState.gettingCache:
+              return const Center(child: CircularProgressIndicator());
+            case ShippingAddressUIState.getCacheSuccess:
+              final address = controller.rxAddress.value;
+              return Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(address.id),
+                    Text(address.address),
+                  ],
+                ),
+              );
+            case ShippingAddressUIState.getCacheFail:
+              return const Center(
+                child: Text("ShippingAddressUIState.getCacheFail"),
+              );
+            default:
+              throw UnimplementedError();
+          }
+        }));
   }
 }

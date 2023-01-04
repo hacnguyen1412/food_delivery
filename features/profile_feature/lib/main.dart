@@ -26,9 +26,8 @@ class _ProfileAppState extends State<ProfileApp> {
     return ThemeManager(
       builder: (light, dark) => MaterialApp.router(
         title: 'Profile Feature',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme: light,
+        darkTheme: dark,
         routeInformationParser: appRouter.router.defaultRouteParser(),
         routerDelegate: appRouter.router.delegate(
           initialRoutes: [const ProfileRoute()],

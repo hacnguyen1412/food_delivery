@@ -1,13 +1,9 @@
 import 'dart:convert';
-
 import 'package:core_package/core_package.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:profile_feature/src/data/shipping_address/model/shipping_address_dto.dart';
 import 'package:profile_feature/src/data/shipping_address/repository_impl/shipping_address_rest_client.dart';
-
-import 'remote_data_source_test.mocks.dart';
 
 class DioAdapterMock extends Mock implements HttpClientAdapter {}
 

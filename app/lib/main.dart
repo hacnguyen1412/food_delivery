@@ -1,5 +1,6 @@
 import 'package:app/core/router/router.dart';
 import 'package:core_router/core_router.dart';
+import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 import 'core/di/di.dart';
 
@@ -18,6 +19,7 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   final appRouter = getIt<AppRouter>();
+  final initialBrightness = getIt<Brightness>();
   @override
   void initState() {
     super.initState();
@@ -25,15 +27,18 @@ class _MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Food delivery',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ThemeManager(
+      builder: (theme, darkTheme) => MaterialApp.router(
+        title: 'Food delivery',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        routeInformationParser: appRouter.router.defaultRouteParser(),
+        routerDelegate: appRouter.router.delegate(
+          initialRoutes: [const TabBarScreenRoute()],
+        ),
       ),
-      routeInformationParser: appRouter.router.defaultRouteParser(),
-      routerDelegate: appRouter.router.delegate(
-        initialRoutes: [const TabBarScreenRoute()],
-      ),
+      brightness: initialBrightness,
     );
   }
 }

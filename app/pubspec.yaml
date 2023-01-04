@@ -20,6 +20,9 @@ dependencies:
 
   core_router:
     path: '../core/core_router'
+
+  core_ui:
+    path: '../core/core_ui'
     
 
   #feature

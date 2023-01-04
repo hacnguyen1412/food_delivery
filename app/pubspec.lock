@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "47.0.0"
+  adaptive_theme:
+    dependency: transitive
+    description:
+      name: adaptive_theme
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.1.1"
   analyzer:
     dependency: transitive
     description:
@@ -187,6 +194,13 @@ packages:
     dependency: "direct main"
     description:
       path: "../core/core_router"
+      relative: true
+    source: path
+    version: "1.0.0+1"
+  core_ui:
+    dependency: "direct main"
+    description:
+      path: "../core/core_ui"
       relative: true
     source: path
     version: "1.0.0+1"

@@ -28,11 +28,10 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return ThemeManager(
-      builder: (theme, darkTheme) => MaterialApp.router(
+      builder: (light, dark) => MaterialApp.router(
         title: 'Food delivery',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        theme: light,
+        darkTheme: dark,
         routeInformationParser: appRouter.router.defaultRouteParser(),
         routerDelegate: appRouter.router.delegate(
           initialRoutes: [const TabBarScreenRoute()],

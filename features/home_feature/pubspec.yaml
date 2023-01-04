@@ -24,6 +24,9 @@ dependencies:
 
   core_realm:
     path: '../../core/core_realm'
+
+  core_ui:
+    path: '../../core/core_ui'
   
   realm: ^0.8.0+rc
 

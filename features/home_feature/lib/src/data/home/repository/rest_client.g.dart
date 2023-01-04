@@ -43,7 +43,6 @@ class _TaskRestClient implements TaskRestClient {
       deserializeTaskDtoList,
       _result.data!.cast<Map<String, dynamic>>(),
     );
-
     return value;
   }
 

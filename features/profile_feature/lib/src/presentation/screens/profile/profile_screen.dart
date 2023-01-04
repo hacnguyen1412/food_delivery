@@ -1,5 +1,6 @@
 import 'package:core_dependency/core_dependency.dart';
 import 'package:core_router/core_router.dart';
+import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:profile_feature/core/di/di.dart';
 import 'package:profile_feature/profile_feature.dart';
@@ -28,9 +29,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
       child: SafeArea(
         top: false,
         child: Scaffold(
-          backgroundColor: Colors.white,
           appBar: AppBar(
             title: const Text("Profile screen"),
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    ThemeManager.of(context).toggleThemeMode();
+                  },
+                  icon: const Icon(
+                    Icons.add,
+                  ))
+            ],
           ),
           body: Obx(() {
             final state = controller.rxState.value;

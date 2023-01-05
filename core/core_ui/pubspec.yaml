@@ -12,8 +12,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   adaptive_theme: ^3.1.1
   flutter_svg: ^1.1.6
+  flutter_sheet_localization:
+    git:
+      url: git@github.com:hacnguyen1412/flutter_sheet_localization.git
+      path: flutter_sheet_localization
+  
 
 dev_dependencies:
 
@@ -23,6 +30,10 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   build_runner:
   flutter_gen_runner:
+  flutter_sheet_localization_generator:
+    git:
+      url: git@github.com:hacnguyen1412/flutter_sheet_localization.git
+      path: flutter_sheet_localization_generator
 
 flutter:
   uses-material-design: true
@@ -30,6 +41,6 @@ flutter:
   
   assets:
     - assets/images/
-    - assets/fonts/
-    - assets/icons/
+    # - assets/fonts/
+    # - assets/icons/
 

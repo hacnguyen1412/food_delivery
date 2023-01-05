@@ -25,6 +25,7 @@ class _ProfileAppState extends State<ProfileApp> {
   Widget build(BuildContext context) {
     return ThemeManager(
       builder: (light, dark) => MaterialApp.router(
+        locale: localizedLabels.keys.first,
         title: 'Profile Feature',
         theme: light,
         darkTheme: dark,
@@ -32,6 +33,12 @@ class _ProfileAppState extends State<ProfileApp> {
         routerDelegate: appRouter.router.delegate(
           initialRoutes: [const ProfileRoute()],
         ),
+        localizationsDelegates: const [
+          AppLocalizationsDelegate(),
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: localizedLabels.keys.toList(),
       ),
       brightness: Brightness.dark,
     );

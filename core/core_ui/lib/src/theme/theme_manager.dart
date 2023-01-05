@@ -38,6 +38,12 @@ class ThemeManager extends AdaptiveTheme {
   }
 }
 
+extension AppThemeContext on BuildContext {
+  AppTheme get appTheme {
+    return ThemeManager.themeOf(this);
+  }
+}
+
 extension on AdaptiveThemeMode {
   Brightness? get brightness {
     switch (this) {

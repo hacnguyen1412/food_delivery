@@ -44,6 +44,13 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Text(
+                      context.localizations.welcome,
+                      style: TextStyle(
+                        color: context.appTheme.textPrimary,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
                     SvgView.asset(
                       Assets.images.imgAvatar,
                       width: 40,

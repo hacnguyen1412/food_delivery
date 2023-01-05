@@ -29,7 +29,7 @@ class UIConfigtion {
     try {
       final themeDataString = prefs.getString(UIConfigtion.themeKey);
       final themeDataMap = json.decode(themeDataString!);
-      final themeMode = themeDataMap[modeKey].mode;
+      final themeMode = AdaptiveThemeMode.values[themeDataMap[modeKey]];
       brightness = themeMode.brightness!;
     } catch (e) {
       brightness = SchedulerBinding.instance.window.platformBrightness;
@@ -87,13 +87,6 @@ class UIManager extends StatefulWidget {
             as AdaptiveThemeManager<ThemeData>;
     final appTheme = adaptiveManager.brightness!.appTheme;
     return appTheme;
-  }
-
-  static Future<Brightness> getBrightness() async {
-    final adaptiveMode = await AdaptiveTheme.getThemeMode();
-    Brightness? brightness = adaptiveMode?.brightness;
-    brightness ??= SchedulerBinding.instance.window.platformBrightness;
-    return brightness;
   }
 }
 

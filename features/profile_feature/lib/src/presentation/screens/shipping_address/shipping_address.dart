@@ -30,15 +30,6 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Shipping address screen"),
-          actions: [
-            IconButton(
-                onPressed: () {
-                  UIManager.of(context).changeLocale(LocaleType.chinese);
-                },
-                icon: const Icon(
-                  Icons.remove,
-                ))
-          ],
         ),
         body: Obx(() {
           final state = controller.rxState.value;
@@ -69,6 +60,24 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
                     Text(address.id),
                     const SizedBox(height: 4),
                     Text(address.address),
+                    TextButton(
+                      onPressed: () {
+                        context.uiBehavior.changeLocale(LocaleType.english);
+                      },
+                      child: const Text("English"),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        context.uiBehavior.changeLocale(LocaleType.french);
+                      },
+                      child: const Text("French"),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        context.uiBehavior.changeLocale(LocaleType.chinese);
+                      },
+                      child: const Text("Chines"),
+                    ),
                   ],
                 ),
               );

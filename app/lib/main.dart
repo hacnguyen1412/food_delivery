@@ -19,7 +19,7 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   final appRouter = getIt<AppRouter>();
-  final initialBrightness = getIt<Brightness>();
+  final uiConfigtion = getIt<UIConfigtion>();
   @override
   void initState() {
     super.initState();
@@ -46,8 +46,7 @@ class _MainAppState extends State<MainApp> {
           supportedLocales: localizedLabels.keys.toList(),
         );
       },
-      brightness: initialBrightness,
-      initialLocale: localizedLabels.keys.first,
+      configtion: uiConfigtion,
     );
   }
 }

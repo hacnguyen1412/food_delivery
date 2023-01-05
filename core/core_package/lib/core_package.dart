@@ -13,3 +13,4 @@ export 'package:json_annotation/json_annotation.dart';
 export 'package:path_provider/path_provider.dart';
 export 'package:retrofit/retrofit.dart';
 export 'package:dio/dio.dart' hide Headers, ProgressCallback;
+export 'package:shared_preferences/shared_preferences.dart';

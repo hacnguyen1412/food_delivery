@@ -24,7 +24,6 @@ class _ProfileAppState extends State<ProfileApp> {
   @override
   Widget build(BuildContext context) {
     return UIManager(
-      initialLocale: localizedLabels.keys.first,
       builder: (light, dark, locale) {
         return MaterialApp.router(
           locale: locale,
@@ -43,7 +42,10 @@ class _ProfileAppState extends State<ProfileApp> {
           supportedLocales: localizedLabels.keys.toList(),
         );
       },
-      brightness: Brightness.light,
+      configtion: UIConfigtion(
+        brightness: Brightness.light,
+        localeType: LocaleType.english,
+      ),
     );
   }
 }

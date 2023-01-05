@@ -13,7 +13,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "86aaa011a6495e58a13fef3354d906a2caf3f7a7"
+      resolved-ref: "8281a407f20952196e42597d64be151ab613e33f"
       url: "git@github.com:hacnguyen1412/adaptive_theme.git"
     source: git
     version: "3.1.1"
@@ -249,7 +249,7 @@ packages:
     description:
       path: flutter_sheet_localization
       ref: HEAD
-      resolved-ref: "75923f94a483da829ec3fd6732dbf3680eb23b07"
+      resolved-ref: da468b1423a4955858600b0a1ad786e12732ad72
       url: "git@github.com:hacnguyen1412/flutter_sheet_localization.git"
     source: git
     version: "5.1.1"

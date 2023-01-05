@@ -25,3 +25,18 @@ extension LocaleTypeExtension on LocaleType {
     return Locale(key);
   }
 }
+
+extension LocaleKeyString on String {
+  LocaleType get locale {
+    switch (this) {
+      case 'en':
+        return LocaleType.english;
+      case 'fr':
+        return LocaleType.french;
+      case 'zh':
+        return LocaleType.chinese;
+      default:
+        return LocaleType.english;
+    }
+  }
+}

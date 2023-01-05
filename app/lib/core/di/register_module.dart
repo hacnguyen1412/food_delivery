@@ -5,5 +5,5 @@ import 'package:core_ui/core_ui.dart';
 abstract class RegisterModule {
   @preResolve
   @lazySingleton
-  Future<Brightness> get brightness => UIManager.getBrightness();
+  Future<UIConfigtion> get uiConfigtion => UIConfigtion.getInstance();
 }

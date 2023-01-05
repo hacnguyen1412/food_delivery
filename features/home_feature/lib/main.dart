@@ -40,8 +40,10 @@ class _HomeAppState extends State<HomeApp> {
         ],
         supportedLocales: localizedLabels.keys.toList(),
       ),
-      brightness: Brightness.dark,
-      initialLocale: localizedLabels.keys.first,
+      configtion: UIConfigtion(
+        brightness: Brightness.light,
+        localeType: LocaleType.english,
+      ),
     );
   }
 }

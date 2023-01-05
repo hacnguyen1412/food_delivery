@@ -30,7 +30,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         actions: [
           IconButton(
               onPressed: () {
-                ThemeManager.of(context).toggleThemeMode();
+                UIManager.of(context).toggleThemeMode();
               },
               icon: const Icon(
                 Icons.add,

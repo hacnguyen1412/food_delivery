@@ -23,23 +23,27 @@ class _ProfileAppState extends State<ProfileApp> {
   final appRouter = getIt<AppRouter>();
   @override
   Widget build(BuildContext context) {
-    return ThemeManager(
-      builder: (light, dark) => MaterialApp.router(
-        locale: localizedLabels.keys.first,
-        title: 'Profile Feature',
-        theme: light,
-        darkTheme: dark,
-        routeInformationParser: appRouter.router.defaultRouteParser(),
-        routerDelegate: appRouter.router.delegate(
-          initialRoutes: [const ProfileRoute()],
-        ),
-        localizationsDelegates: const [
-          AppLocalizationsDelegate(),
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-        ],
-        supportedLocales: localizedLabels.keys.toList(),
-      ),
+    return UIManager(
+      initialLocale: localizedLabels.keys.first,
+      builder: (light, dark, locale) {
+        print("REBUILD");
+        return MaterialApp.router(
+          locale: locale,
+          title: 'Profile Feature',
+          theme: light,
+          darkTheme: dark,
+          routeInformationParser: appRouter.router.defaultRouteParser(),
+          routerDelegate: appRouter.router.delegate(
+            initialRoutes: [const ProfileRoute()],
+          ),
+          localizationsDelegates: const [
+            AppLocalizationsDelegate(),
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
+          supportedLocales: localizedLabels.keys.toList(),
+        );
+      },
       brightness: Brightness.dark,
     );
   }

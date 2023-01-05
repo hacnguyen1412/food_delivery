@@ -26,7 +26,6 @@ class _ProfileAppState extends State<ProfileApp> {
     return UIManager(
       initialLocale: localizedLabels.keys.first,
       builder: (light, dark, locale) {
-        print("REBUILD");
         return MaterialApp.router(
           locale: locale,
           title: 'Profile Feature',
@@ -38,13 +37,13 @@ class _ProfileAppState extends State<ProfileApp> {
           ),
           localizationsDelegates: const [
             AppLocalizationsDelegate(),
-            GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
+            ...GlobalMaterialLocalizations.delegates,
           ],
           supportedLocales: localizedLabels.keys.toList(),
         );
       },
-      brightness: Brightness.dark,
+      brightness: Brightness.light,
     );
   }
 }

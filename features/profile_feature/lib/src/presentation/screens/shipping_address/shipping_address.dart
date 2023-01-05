@@ -30,6 +30,15 @@ class _ShippingAddressScreenState extends State<ShippingAddressScreen> {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Shipping address screen"),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  UIManager.of(context).changeLocale(LocaleType.chinese);
+                },
+                icon: const Icon(
+                  Icons.remove,
+                ))
+          ],
         ),
         body: Obx(() {
           final state = controller.rxState.value;

@@ -29,6 +29,8 @@ dependencies:
     path: '../../core/core_ui'
 
   realm: ^0.8.0+rc
+
+  
   
 
 dev_dependencies:

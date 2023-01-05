@@ -1,9 +1,19 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:core_ui/src/localization/locale_type.dart';
 import 'package:core_ui/src/theme/app_theme.dart';
 import 'package:core_ui/src/theme/dark_theme.dart';
 import 'package:core_ui/src/theme/light_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+
+abstract class UIBehavior {
+  void changeLocale(LocaleType localeType);
+  void setLight();
+  void setDark();
+  void toggleThemeMode();
+  @protected
+  AdaptiveThemeManager<ThemeData>? _adaptiveManager;
+}
 
 class UIManager extends StatefulWidget {
   final Brightness brightness;
@@ -19,10 +29,16 @@ class UIManager extends StatefulWidget {
   @override
   State<UIManager> createState() => _UIManagerState();
 
-  static AdaptiveThemeManager<ThemeData> of(BuildContext context) {
-    final manager = context.findAncestorStateOfType<State<AdaptiveTheme>>()!
-        as AdaptiveThemeManager<ThemeData>;
-    return manager;
+  static UIBehavior of(BuildContext context) {
+    final state = context.findAncestorStateOfType<State<UIManager>>();
+    final behavior = state as UIBehavior;
+    if (behavior._adaptiveManager == null) {
+      final adaptiveManager =
+          context.findAncestorStateOfType<State<AdaptiveTheme>>()!
+              as AdaptiveThemeManager<ThemeData>;
+      behavior._adaptiveManager = adaptiveManager;
+    }
+    return behavior;
   }
 
   static AppTheme themeOf(BuildContext context) {
@@ -41,7 +57,7 @@ class UIManager extends StatefulWidget {
   }
 }
 
-class _UIManagerState extends State<UIManager> {
+class _UIManagerState extends State<UIManager> implements UIBehavior {
   late Locale currentLocale;
   late Widget Function(ThemeData, ThemeData) adaptiveBuilder;
 
@@ -64,11 +80,34 @@ class _UIManagerState extends State<UIManager> {
     );
   }
 
-  void changeLocale(Locale newLocale) {
+  @override
+  void changeLocale(LocaleType localeType) {
     setState(() {
-      currentLocale = newLocale;
+      currentLocale = localeType.locale;
     });
   }
+
+  @override
+  void setDark() {
+    _adaptiveManager?.setDark();
+  }
+
+  @override
+  void setLight() {
+    _adaptiveManager?.setLight();
+  }
+
+  @override
+  void toggleThemeMode() {
+    if (_adaptiveManager?.brightness == Brightness.light) {
+      setDark();
+    } else {
+      setLight();
+    }
+  }
+
+  @override
+  AdaptiveThemeManager<ThemeData>? _adaptiveManager;
 }
 
 extension BrightnessExtension on Brightness {

@@ -11,9 +11,11 @@ packages:
   adaptive_theme:
     dependency: "direct main"
     description:
-      name: adaptive_theme
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: "86aaa011a6495e58a13fef3354d906a2caf3f7a7"
+      url: "git@github.com:hacnguyen1412/adaptive_theme.git"
+    source: git
     version: "3.1.1"
   analyzer:
     dependency: transitive

@@ -9,5 +9,6 @@ export '/src/svg_view/svg_view.dart';
 export '/src/ui_manager/ui_manager.dart';
 
 //language
-export 'package:core_ui/src/localization/localization.dart';
+export '/src/localization/locale_type.dart';
+export '/src/localization/localization.dart';
 export 'package:flutter_localizations/flutter_localizations.dart';

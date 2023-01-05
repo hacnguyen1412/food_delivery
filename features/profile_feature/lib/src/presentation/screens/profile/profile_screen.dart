@@ -34,7 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               },
               icon: const Icon(
                 Icons.add,
-              ))
+              )),
         ],
       ),
       body: Obx(() {

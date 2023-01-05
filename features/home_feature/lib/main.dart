@@ -23,17 +23,25 @@ class _HomeAppState extends State<HomeApp> {
   final appRouter = getIt<AppRouter>();
   @override
   Widget build(BuildContext context) {
-    return ThemeManager(
-      builder: (light, dark) => MaterialApp.router(
+    return UIManager(
+      builder: (light, dark, locale) => MaterialApp.router(
         title: 'Home Feature',
+        locale: locale,
         theme: light,
         darkTheme: dark,
         routeInformationParser: appRouter.router.defaultRouteParser(),
         routerDelegate: appRouter.router.delegate(
           initialRoutes: [const HomeRoute()],
         ),
+        localizationsDelegates: const [
+          AppLocalizationsDelegate(),
+          GlobalWidgetsLocalizations.delegate,
+          ...GlobalMaterialLocalizations.delegates,
+        ],
+        supportedLocales: localizedLabels.keys.toList(),
       ),
       brightness: Brightness.dark,
+      initialLocale: localizedLabels.keys.first,
     );
   }
 }

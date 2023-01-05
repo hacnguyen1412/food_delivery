@@ -27,17 +27,27 @@ class _MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-    return ThemeManager(
-      builder: (light, dark) => MaterialApp.router(
-        title: 'Food delivery',
-        theme: light,
-        darkTheme: dark,
-        routeInformationParser: appRouter.router.defaultRouteParser(),
-        routerDelegate: appRouter.router.delegate(
-          initialRoutes: [const TabBarScreenRoute()],
-        ),
-      ),
+    return UIManager(
+      builder: (light, dark, locale) {
+        return MaterialApp.router(
+          title: 'Food delivery',
+          locale: locale,
+          theme: light,
+          darkTheme: dark,
+          routeInformationParser: appRouter.router.defaultRouteParser(),
+          routerDelegate: appRouter.router.delegate(
+            initialRoutes: [const TabBarScreenRoute()],
+          ),
+          localizationsDelegates: const [
+            AppLocalizationsDelegate(),
+            GlobalWidgetsLocalizations.delegate,
+            ...GlobalMaterialLocalizations.delegates,
+          ],
+          supportedLocales: localizedLabels.keys.toList(),
+        );
+      },
       brightness: initialBrightness,
+      initialLocale: localizedLabels.keys.first,
     );
   }
 }

@@ -14,8 +14,10 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  adaptive_theme: ^3.1.1
   flutter_svg: ^1.1.6
+  adaptive_theme:
+    git: git@github.com:hacnguyen1412/adaptive_theme.git
+    
   flutter_sheet_localization:
     git:
       url: git@github.com:hacnguyen1412/flutter_sheet_localization.git
